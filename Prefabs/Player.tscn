@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://ct32ipwenfk2x"]
+
+[ext_resource type="Script" path="res://Scripts/Chapples/ChapplePlayer.cs" id="1_1mi0x"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ewnab"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oqexc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km5wg"]
+albedo_color = Color(0.407843, 0.505882, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_apls6"]
+material = SubResource("StandardMaterial3D_km5wg")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pwmyf"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81882, 0)
+script = ExtResource("1_1mi0x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_ewnab")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_oqexc")
+
+[node name="Basket" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.117806, 0, 0, 0, 1, 0, 1.118, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Basket"]
+mesh = SubResource("BoxMesh_apls6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Basket"]
+shape = SubResource("BoxShape3D_pwmyf")

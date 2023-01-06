@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cen7kp8gl56ke"]
+
+[ext_resource type="PackedScene" uid="uid://ct32ipwenfk2x" path="res://Prefabs/Player.tscn" id="1_urtw0"]
+[ext_resource type="Environment" uid="uid://dpwo2jkg4lb0r" path="res://Environments/Chapple_Env.tres" id="2_4fnyv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7ai0g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8bt7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ibb1h"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_h6v3r"]
+
+[node name="ChappleLevel" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_urtw0")]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(30.3227, 0, 0, 0, 1, 0, 0, 0, 4.81154, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_7ai0g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_n8bt7")
+
+[node name="Chapple" type="RigidBody3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 6.06642, 0)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+constant_force = Vector3(9, 4, 15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chapple"]
+shape = SubResource("SphereShape3D_ibb1h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Chapple"]
+mesh = SubResource("SphereMesh_h6v3r")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.82656, 13.9015)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.96792, 0.251259, 0, -0.251259, 0.96792, -6.08722, 6.45557, 11.4355)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_4fnyv")
