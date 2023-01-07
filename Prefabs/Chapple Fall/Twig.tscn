@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw4a7c3le7upi"]
+
+[ext_resource type="Script" path="res://Scripts/Chapple Fall/Twig.cs" id="1_j0fax"]
+[ext_resource type="PackedScene" uid="uid://d3pvk3orsjaxe" path="res://Models/Chapple Fall/Twig.glb" id="2_kq027"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onluu"]
+size = Vector3(3.71811, 0.226013, 0.626974)
+
+[node name="Twig" type="RigidBody3D" groups=["twigs"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5761, 0)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_j0fax")
+
+[node name="Twig" parent="." instance=ExtResource("2_kq027")]
+transform = Transform3D(0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042483, 0, 0.077687)
+shape = SubResource("BoxShape3D_onluu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

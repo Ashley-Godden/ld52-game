@@ -3,19 +3,22 @@ using System;
 
 public partial class Chapple : RigidBody3D
 {
-    // Declare member variables here
-    ChappleManager chappleManager;
+    AnimationPlayer animationPlayer;
+
+    public override void _Ready()
+    {
+        animationPlayer = GetNode<AnimationPlayer>("Chapple/AnimationPlayer");
+    }
+
+    public override void _Process(double delta)
+    {
+        animationPlayer.Play("Falling");
+    }
 
     public void _on_body_entered(Node body)
     {
-        if (chappleManager == null)
-            chappleManager = GetNode<ChappleManager>("../../ChappleManager");
-
         if (body.IsInGroup("ground"))
         {
-            // Add to fail
-            chappleManager.AddFail();
-
             // Destroy the chapple
             this.QueueFree();
         }

@@ -13,11 +13,26 @@ public partial class ChapplePlayer : CharacterBody3D
     [Export]
     ChappleManager chappleManager;
 
+    [Export]
+    private Node3D wickerBasketEmpty;
+
+    [Export]
+    private Node3D wickerBasketFull;
+
     private bool stunned = false;
 
     private float stunDuration = 1f;
 
     private float stunTimer = 0f;
+
+    private Panel stunPanel;
+
+    public override void _Ready()
+    {
+        // Called every time the node is added to the scene.
+        // Initialization here
+        stunPanel = GetNode<Panel>("../UI/StunPanel");
+    }
 
     public override void _Process(double delta)
     {
@@ -42,6 +57,9 @@ public partial class ChapplePlayer : CharacterBody3D
 
                 // Set stunned to false
                 stunned = false;
+
+                // Set stun panel to invisible
+                stunPanel.Visible = false;
             }
         }
         else
@@ -75,6 +93,9 @@ public partial class ChapplePlayer : CharacterBody3D
     {
         // Set stunned to true
         stunned = true;
+
+        // Set stun panel to visible
+        stunPanel.Visible = true;
     }
 
     public void _On_Basket_Body_Entered(Node body)
@@ -85,6 +106,19 @@ public partial class ChapplePlayer : CharacterBody3D
             chappleManager.AddScore(1);
 
             // Destroy the chapple
+            body.QueueFree();
+
+            // Set wicker basket to full
+            if (wickerBasketEmpty.Visible)
+            {
+                wickerBasketEmpty.Visible = false;
+                wickerBasketFull.Visible = true;
+            }
+        } else if (body.IsInGroup("twigs"))
+        {
+            StunPlayer();
+
+            // Destroy the twig
             body.QueueFree();
         }
     }

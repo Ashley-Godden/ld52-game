@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq8ny8ukrjcb7"]
+[gd_scene load_steps=11 format=3 uid="uid://bq8ny8ukrjcb7"]
 
 [ext_resource type="PackedScene" uid="uid://bmy42lk1w5muc" path="res://Prefabs/Chapple Fall/ChapplePlayer.tscn" id="1_urtw0"]
 [ext_resource type="Environment" uid="uid://dpwo2jkg4lb0r" path="res://Environments/Chapple_Env.tres" id="2_4fnyv"]
 [ext_resource type="Script" path="res://Scripts/Chapple Fall/ChappleManager.cs" id="3_w38lm"]
 [ext_resource type="PackedScene" uid="uid://c2wvrdljdv6ob" path="res://Prefabs/Chapple Fall/Chapple.tscn" id="4_qxqik"]
+[ext_resource type="PackedScene" uid="uid://dw4a7c3le7upi" path="res://Prefabs/Chapple Fall/Twig.tscn" id="5_3nv62"]
+[ext_resource type="PackedScene" uid="uid://cxtgxck7nlwoh" path="res://Models/Chapple Fall/Chapple Tree.glb" id="6_xj576"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nemx7"]
 
@@ -12,10 +14,15 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_n8bt7"]
 size = Vector3(240.629, 4.82625, 4.79241)
 
+[sub_resource type="LabelSettings" id="LabelSettings_t26dd"]
+font_size = 40
+font_color = Color(0.85098, 0, 0.192157, 1)
+
 [node name="ChappleLevel" type="Node3D"]
 
 [node name="SpawnArea" type="MeshInstance3D" parent="."]
-transform = Transform3D(40, 0, 0, 0, 4, 0, 0, 0, 0.2, 0, 22.4, 0)
+transform = Transform3D(48.952, 0, 0, 0, 6.871, 0, 0, 0, 0.2, -1.642, 25.094, 0)
+visible = false
 mesh = SubResource("BoxMesh_nemx7")
 skeleton = NodePath("")
 
@@ -34,10 +41,10 @@ mesh = SubResource("BoxMesh_7ai0g")
 shape = SubResource("BoxShape3D_n8bt7")
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 13.901)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856, 13.568, 13.901)
 projection = 1
 current = true
-size = 25.0
+size = 30.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.96792, 0.251259, 0, -0.251259, 0.96792, -6.08722, 6.45557, 11.4355)
@@ -48,10 +55,44 @@ environment = ExtResource("2_4fnyv")
 [node name="ChappleManager" type="Node" parent="." node_paths=PackedStringArray("spawnArea")]
 script = ExtResource("3_w38lm")
 chapplePrefab = ExtResource("4_qxqik")
+twigPrefab = ExtResource("5_3nv62")
 spawnRate = 3.0
 spawnArea = NodePath("../SpawnArea")
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="StunPanel" type="Panel" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -29.0
+offset_right = 107.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StunLabel" type="Label" parent="UI/StunPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -12.5
+offset_right = 96.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "STUNNED"
+label_settings = SubResource("LabelSettings_t26dd")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="FailPanel" type="Panel" parent="UI"]
 anchors_preset = 1
@@ -103,3 +144,27 @@ grow_vertical = 2
 text = "Score: 0"
 vertical_alignment = 1
 uppercase = true
+
+[node name="Trees" type="Node3D" parent="."]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, -1.713, -4.563)
+
+[node name="Chapple Tree" parent="Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(4.11094, 0, 0, 0, 4.11094, 0, 0, 0, 4.11094, 0, 4.07986, -3.55251)
+
+[node name="Chapple Tree3" parent="Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(-1.06385, 0, 3.9709, 0, 4.11094, 0, -3.9709, 0, -1.06385, 8.12705, 4.07986, -3.55251)
+
+[node name="Chapple Tree5" parent="Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(-3.68851, 0, 1.81513, 0, 4.11094, 0, -1.81513, 0, -3.68851, 15.7793, 4.07986, -3.55251)
+
+[node name="Chapple Tree2" parent="Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(3.1091, 0, 2.68948, 0, 4.11093, 0, -2.68948, 0, 3.1091, -10.5753, 4.07986, -3.55251)
+
+[node name="Chapple Tree4" parent="Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(-1.14264, 0, -3.94894, 0, 4.11093, 0, 3.94894, 0, -1.14264, -21.3839, 4.07986, -3.55251)
+
+[node name="Chapple Tree6" parent="Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(-3.05324, 0, 2.75272, 0, 4.11093, 0, -2.75272, 0, -3.05324, -32.3493, 4.07986, -3.55251)
+
+[node name="Chapple Tree7" parent="Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(3.32113, 0, 2.42278, 0, 4.11093, 0, -2.42278, 0, 3.32113, 26.2109, 4.07986, -3.55251)

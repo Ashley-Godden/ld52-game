@@ -1,26 +1,24 @@
 [gd_scene load_steps=7 format=3 uid="uid://bmy42lk1w5muc"]
 
 [ext_resource type="Script" path="res://Scripts/Chapple Fall/ChapplePlayer.cs" id="1_xbs1i"]
+[ext_resource type="PackedScene" uid="uid://bcnn7js4xb6pm" path="res://Models/Chapple Fall/Wicker Basket Full.glb" id="2_ham7w"]
+[ext_resource type="PackedScene" uid="uid://f41oppim13sw" path="res://Models/Chapple Fall/Wicker Basket.glb" id="2_uchn0"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ewnab"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oqexc"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km5wg"]
-albedo_color = Color(0.407843, 0.505882, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_apls6"]
-material = SubResource("StandardMaterial3D_km5wg")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_pwmyf"]
-size = Vector3(1, 0.167481, 1)
+size = Vector3(1.12726, 0.439104, 1.12718)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("basket")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("basket", "wickerBasketEmpty", "wickerBasketFull")]
 script = ExtResource("1_xbs1i")
-moveSpeed = 40.0
+moveSpeed = 45.0
 basket = NodePath("Basket")
+wickerBasketEmpty = NodePath("Basket/Wicker Basket Empty")
+wickerBasketFull = NodePath("Basket/Wicker Basket Full")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_ewnab")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -37,11 +35,15 @@ axis_lock_angular_z = true
 max_contacts_reported = 10
 contact_monitor = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Basket"]
-transform = Transform3D(1, 0, 0, 0, 0.15, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_apls6")
+[node name="Wicker Basket Full" parent="Basket" instance=ExtResource("2_ham7w")]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
+visible = false
+
+[node name="Wicker Basket Empty" parent="Basket" instance=ExtResource("2_uchn0")]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742831, 0)
 shape = SubResource("BoxShape3D_pwmyf")
 
 [connection signal="body_entered" from="Basket" to="." method="_On_Basket_Body_Entered"]
