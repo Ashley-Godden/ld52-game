@@ -23,6 +23,8 @@ public partial class ChappleManager : Node
 
     [Export]
     private MeshInstance3D spawnArea;
+    
+    private bool spawning = true;
 
     private float spawnAreaLeft;
     private float spawnAreaRight;
@@ -40,6 +42,7 @@ public partial class ChappleManager : Node
     private Label scoreLabel;
 
     private Label failLabel;
+    private Panel gameOverPanel;
 
     public override void _Ready()
     {
@@ -47,6 +50,7 @@ public partial class ChappleManager : Node
         // Initialization here
         scoreLabel = GetNode<Label>("../UI/ScorePanel/ScoreLabel");
         failLabel = GetNode<Label>("../UI/FailPanel/FailLabel");
+        gameOverPanel = GetNode<Panel>("../UI/GameOverPanel");
 
         // Get half-size of spawn area
         Vector3 halfSize = spawnArea.Scale / 2;
@@ -61,9 +65,12 @@ public partial class ChappleManager : Node
     }
 
     public override void _Process(double delta)
-    {
+    {        
         // Called every frame. Delta is time since last frame.
         // Update game logic here.
+        if (!spawning)
+            return;
+
         spawnTimer += (float)delta;
 
         if (spawnTimer >= spawnRate)
@@ -143,7 +150,15 @@ public partial class ChappleManager : Node
 
     private void LostGame()
     {
-        // Reload the scene
+        // Set spawning to false
+        spawning = false;
+
+        // Show game over panel
+        gameOverPanel.Visible = true;
+    }
+
+    public void _on_try_again_button_pressed() 
+    {
         GetTree().ReloadCurrentScene();
     }
 }
