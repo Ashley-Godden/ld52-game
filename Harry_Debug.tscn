@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bir36xal0rjtb"]
 
-[ext_resource type="PackedScene" uid="uid://d3pvk3orsjaxe" path="res://Models/Chapple Fall/Twig.glb" id="1_wkdfn"]
+[ext_resource type="PackedScene" uid="uid://3l6e4rmbj5lr" path="res://Models/Main Character/Main Character.glb" id="1_bb3xa"]
 
 [node name="Harry_Debug" type="Node3D"]
 
-[node name="Twig" parent="." instance=ExtResource("1_wkdfn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.924894, 0, 0.0481398)
+[node name="Main Character" parent="." instance=ExtResource("1_bb3xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.308242, 0, 0.199932)
