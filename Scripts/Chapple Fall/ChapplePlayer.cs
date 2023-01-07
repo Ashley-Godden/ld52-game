@@ -19,6 +19,7 @@ public partial class ChapplePlayer : CharacterBody3D
     [Export]
     private Node3D wickerBasketFull;
 
+    private bool paused = true;
     private bool stunned = false;
 
     private float stunDuration = 1f;
@@ -42,6 +43,10 @@ public partial class ChapplePlayer : CharacterBody3D
             // Quit the game
             GetTree().Quit();
         }
+
+        // Check if paused
+        if (paused)
+            return;
 
         // Check if stunned
         if (stunned)
@@ -118,8 +123,17 @@ public partial class ChapplePlayer : CharacterBody3D
         {
             StunPlayer();
 
+            // Take away from chapple score
+            chappleManager.AddScore(-1);
+
             // Destroy the twig
             body.QueueFree();
         }
+    }
+
+    public void StartGame()
+    {
+        // Set paused to false
+        paused = false;
     }
 }

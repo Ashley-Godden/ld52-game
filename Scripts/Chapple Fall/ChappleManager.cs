@@ -19,12 +19,9 @@ public partial class ChappleManager : Node
     private PackedScene twigPrefab;
 
     [Export]
-    private float spawnRate = 1f;
-
-    [Export]
     private MeshInstance3D spawnArea;
     
-    private bool spawning = true;
+    private bool spawning = false;
 
     private float spawnAreaLeft;
     private float spawnAreaRight;
@@ -37,12 +34,16 @@ public partial class ChappleManager : Node
 
     private int fails = 0;
 
-    private int maxFails = 3;
+    private int maxFails = 5;
+
+    private float spawnRate = 3f;
 
     private Label scoreLabel;
-
     private Label failLabel;
     private Panel gameOverPanel;
+    private Panel startGamePanel;
+
+    private ChapplePlayer chapplePlayer;
 
     public override void _Ready()
     {
@@ -51,6 +52,9 @@ public partial class ChappleManager : Node
         scoreLabel = GetNode<Label>("../UI/ScorePanel/ScoreLabel");
         failLabel = GetNode<Label>("../UI/FailPanel/FailLabel");
         gameOverPanel = GetNode<Panel>("../UI/GameOverPanel");
+        startGamePanel = GetNode<Panel>("../UI/StartGamePanel");
+
+        chapplePlayer = GetNode<ChapplePlayer>("../Player");
 
         // Get half-size of spawn area
         Vector3 halfSize = spawnArea.Scale / 2;
@@ -90,18 +94,24 @@ public partial class ChappleManager : Node
             // Reset timer
             spawnTimer = 0f;
         }
+
+        // Lower spawn rate as the score increases
+        spawnRate = Mathf.Clamp(3f - (score / 100f), 0.5f, 3f);
     }
 
     public void AddScore(int score)
     {
         this.score += score;
-        scoreLabel.Text = $"Score: {this.score}";
+        scoreLabel.Text = $"Chapples: {this.score}";
     }
 
     public void AddFail()
     {
+        if (fails >= maxFails)
+            return;
+
         fails++;
-        failLabel.Text = $"Fails: {fails}";
+        failLabel.Text = $"Fails: {fails}/{maxFails}";
 
         if (fails >= maxFails)
         {
@@ -126,6 +136,13 @@ public partial class ChappleManager : Node
                 (float)GD.RandRange(spawnAreaTop, spawnAreaBottom),
                 0f
             )
+        );
+
+        // Randomize rotation
+        chapple.RotationDegrees = new Vector3(
+            (float)GD.RandRange(0f, 360f),
+            (float)GD.RandRange(0f, 360f),
+            (float)GD.RandRange(0f, 360f)
         );
     }
 
@@ -153,6 +170,8 @@ public partial class ChappleManager : Node
         // Set spawning to false
         spawning = false;
 
+        gameOverPanel.GetNode<Label>("ScoreLabel").Text = $"Score: {score}";
+
         // Show game over panel
         gameOverPanel.Visible = true;
     }
@@ -160,5 +179,17 @@ public partial class ChappleManager : Node
     public void _on_try_again_button_pressed() 
     {
         GetTree().ReloadCurrentScene();
+    }
+
+    public void _on_start_game_button_pressed()
+    {
+        // Hide start game panel
+        startGamePanel.Visible = false;
+
+        // Start game
+        chapplePlayer.StartGame();
+
+        // Set spawning to true
+        spawning = true;
     }
 }
