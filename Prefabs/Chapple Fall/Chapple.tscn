@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2wvrdljdv6ob"]
+
+[ext_resource type="Script" path="res://Scripts/Chapple Fall/Chapple.cs" id="1_ruksj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ibb1h"]
+radius = 0.210035
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4376i"]
+albedo_color = Color(0.909804, 0, 0.239216, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_h6v3r"]
+material = SubResource("StandardMaterial3D_4376i")
+
+[node name="Chapple" type="RigidBody3D" groups=["chapples"]]
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+gravity_scale = 0.3
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_ruksj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ibb1h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("SphereMesh_h6v3r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

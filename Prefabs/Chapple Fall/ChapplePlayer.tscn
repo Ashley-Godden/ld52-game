@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct32ipwenfk2x"]
+[gd_scene load_steps=7 format=3 uid="uid://bmy42lk1w5muc"]
 
-[ext_resource type="Script" path="res://Scripts/Chapples/ChapplePlayer.cs" id="1_1mi0x"]
+[ext_resource type="Script" path="res://Scripts/Chapple Fall/ChapplePlayer.cs" id="1_xbs1i"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ewnab"]
 
@@ -13,10 +13,12 @@ albedo_color = Color(0.407843, 0.505882, 1, 1)
 material = SubResource("StandardMaterial3D_km5wg")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pwmyf"]
+size = Vector3(1, 0.167481, 1)
 
-[node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81882, 0)
-script = ExtResource("1_1mi0x")
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("basket")]
+script = ExtResource("1_xbs1i")
+moveSpeed = 40.0
+basket = NodePath("Basket")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_ewnab")
@@ -24,11 +26,22 @@ mesh = SubResource("CapsuleMesh_ewnab")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_oqexc")
 
-[node name="Basket" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.117806, 0, 0, 0, 1, 0, 1.118, 0)
+[node name="Basket" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.118, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+max_contacts_reported = 10
+contact_monitor = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Basket"]
+transform = Transform3D(1, 0, 0, 0, 0.15, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_apls6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Basket"]
 shape = SubResource("BoxShape3D_pwmyf")
+
+[connection signal="body_entered" from="Basket" to="." method="_On_Basket_Body_Entered"]
