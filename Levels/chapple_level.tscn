@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bq8ny8ukrjcb7"]
+[gd_scene load_steps=18 format=3 uid="uid://bq8ny8ukrjcb7"]
 
 [ext_resource type="PackedScene" uid="uid://bmy42lk1w5muc" path="res://Prefabs/Chapple Fall/ChapplePlayer.tscn" id="1_urtw0"]
 [ext_resource type="Environment" uid="uid://dpwo2jkg4lb0r" path="res://Environments/Chapple_Env.tres" id="2_4fnyv"]
@@ -9,7 +9,11 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_nemx7"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k28b5"]
+albedo_color = Color(6.47359e-06, 0.667499, 1.92523e-07, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_7ai0g"]
+material = SubResource("StandardMaterial3D_k28b5")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n8bt7"]
 size = Vector3(240.629, 4.82625, 4.79241)
@@ -22,7 +26,6 @@ font_color = Color(0.85098, 0, 0.192157, 1)
 font_size = 26
 
 [sub_resource type="LabelSettings" id="LabelSettings_pcel5"]
-font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_wde8h"]
 font_size = 18
@@ -30,10 +33,16 @@ font_size = 18
 [sub_resource type="LabelSettings" id="LabelSettings_hkngm"]
 font_size = 18
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f36am"]
+albedo_color = Color(6.83457e-06, 0.657962, 7.70092e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_savek"]
+material = SubResource("StandardMaterial3D_f36am")
+
 [node name="ChappleLevel" type="Node3D"]
 
 [node name="SpawnArea" type="MeshInstance3D" parent="."]
-transform = Transform3D(48.952, 0, 0, 0, 6.871, 0, 0, 0, 0.2, -1.642, 30.2793, 0)
+transform = Transform3D(43.055, 0, 0, 0, 6.871, 0, 0, 0, 0.2, -0.858, 29.969, 0)
 visible = false
 mesh = SubResource("BoxMesh_nemx7")
 skeleton = NodePath("")
@@ -56,7 +65,7 @@ shape = SubResource("BoxShape3D_n8bt7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856, 13.568, 13.901)
 projection = 1
 current = true
-size = 30.0
+size = 26.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.96792, 0.251259, 0, -0.251259, 0.96792, -6.08722, 6.45557, 11.4355)
@@ -68,7 +77,6 @@ environment = ExtResource("2_4fnyv")
 script = ExtResource("3_w38lm")
 chapplePrefab = ExtResource("4_qxqik")
 twigPrefab = ExtResource("5_3nv62")
-spawnRate = 3.0
 spawnArea = NodePath("../SpawnArea")
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -129,7 +137,7 @@ offset_right = 45.5
 offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Fails: 0"
+text = "Fails: 0/5"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -153,9 +161,131 @@ offset_right = 96.0
 offset_bottom = 12.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Score: 0"
+text = "Chapples: 0"
 vertical_alignment = 1
 uppercase = true
+
+[node name="StartGamePanel" type="Panel" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -188.0
+offset_right = 166.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChappleFallLabel" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Chapple Fall"
+label_settings = SubResource("LabelSettings_aji4b")
+horizontal_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.222
+anchor_right = 1.0
+anchor_bottom = 0.361
+offset_top = -0.0140038
+offset_bottom = -0.00700378
+grow_horizontal = 2
+grow_vertical = 2
+text = "Welcome to Chapple Fall"
+label_settings = SubResource("LabelSettings_pcel5")
+horizontal_alignment = 1
+
+[node name="DescriptionLabel2" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.382
+anchor_right = 1.0
+anchor_bottom = 0.521
+offset_left = 10.0
+offset_top = 0.0659943
+offset_right = -10.0
+offset_bottom = 0.072998
+grow_horizontal = 2
+grow_vertical = 2
+text = "Use the A and D keys to move around
+"
+label_settings = SubResource("LabelSettings_pcel5")
+
+[node name="DescriptionLabel3" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.511
+anchor_right = 1.0
+anchor_bottom = 0.65
+offset_left = 10.0
+offset_top = -0.0570068
+offset_right = -10.0
+offset_bottom = -0.0500031
+grow_horizontal = 2
+grow_vertical = 2
+text = "Collect Chapples while avoiding Twigs"
+label_settings = SubResource("LabelSettings_pcel5")
+
+[node name="StartGameButton" type="Button" parent="UI/StartGamePanel"]
+modulate = Color(0.32549, 1, 0.298039, 1)
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.221
+anchor_top = 0.874
+anchor_right = 0.221
+anchor_bottom = 0.874
+offset_left = -55.021
+offset_top = -15.438
+offset_right = 54.979
+offset_bottom = 15.562
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/StartGamePanel/StartGameButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game"
+label_settings = SubResource("LabelSettings_wde8h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToHubButton" type="Button" parent="UI/StartGamePanel"]
+modulate = Color(0.180392, 0.411765, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.767
+anchor_top = 0.874
+anchor_right = 0.767
+anchor_bottom = 0.874
+offset_left = -58.367
+offset_top = -15.438
+offset_right = 58.633
+offset_bottom = 15.562
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/StartGamePanel/BackToHubButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to Hub"
+label_settings = SubResource("LabelSettings_hkngm")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GameOverPanel" type="Panel" parent="UI"]
 visible = false
@@ -184,12 +314,14 @@ horizontal_alignment = 1
 [node name="ScoreLabel" type="Label" parent="UI/GameOverPanel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.184
-anchor_bottom = 0.184
-offset_left = 11.5
-offset_top = 1.112
-offset_right = 87.5
-offset_bottom = 32.112
+anchor_left = 0.164
+anchor_top = 0.273
+anchor_right = 0.164
+anchor_bottom = 0.273
+offset_left = -37.864
+offset_top = -15.531
+offset_right = 38.136
+offset_bottom = 15.469
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_pcel5")
 
@@ -197,13 +329,15 @@ label_settings = SubResource("LabelSettings_pcel5")
 modulate = Color(0.32549, 1, 0.298039, 1)
 clip_children = 2
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 11.5
-offset_top = 11.5
-offset_right = 121.5
-offset_bottom = 42.5
+anchors_preset = -1
+anchor_left = 0.221
+anchor_top = 0.644
+anchor_right = 0.221
+anchor_bottom = 0.644
+offset_left = -55.021
+offset_top = -15.428
+offset_right = 54.979
+offset_bottom = 15.572
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/GameOverPanel/TryAgainButton"]
@@ -221,15 +355,15 @@ vertical_alignment = 1
 [node name="BackToHubButton" type="Button" parent="UI/GameOverPanel"]
 modulate = Color(0.180392, 0.411765, 1, 1)
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -128.5
-offset_top = 11.5
-offset_right = -11.5
-offset_bottom = 42.5
+anchors_preset = -1
+anchor_left = 0.767
+anchor_top = 0.644
+anchor_right = 0.767
+anchor_bottom = 0.644
+offset_left = -58.367
+offset_top = -15.428
+offset_right = 58.633
+offset_bottom = 15.572
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -245,28 +379,96 @@ label_settings = SubResource("LabelSettings_hkngm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Trees" type="Node3D" parent="."]
+[node name="Foreground Trees" type="Node3D" parent="."]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, -1.713, -4.563)
 
-[node name="Chapple Tree" parent="Trees" instance=ExtResource("6_xj576")]
+[node name="Chapple Tree" parent="Foreground Trees" instance=ExtResource("6_xj576")]
 transform = Transform3D(4.11094, 0, 0, 0, 4.11094, 0, 0, 0, 4.11094, 0, 4.07986, -3.55251)
 
-[node name="Chapple Tree3" parent="Trees" instance=ExtResource("6_xj576")]
+[node name="Chapple Tree3" parent="Foreground Trees" instance=ExtResource("6_xj576")]
 transform = Transform3D(-1.06385, 0, 3.9709, 0, 4.11094, 0, -3.9709, 0, -1.06385, 8.12705, 4.07986, -3.55251)
 
-[node name="Chapple Tree5" parent="Trees" instance=ExtResource("6_xj576")]
+[node name="Chapple Tree5" parent="Foreground Trees" instance=ExtResource("6_xj576")]
 transform = Transform3D(-3.68851, 0, 1.81513, 0, 4.11094, 0, -1.81513, 0, -3.68851, 15.7793, 4.07986, -3.55251)
 
-[node name="Chapple Tree2" parent="Trees" instance=ExtResource("6_xj576")]
+[node name="Chapple Tree2" parent="Foreground Trees" instance=ExtResource("6_xj576")]
 transform = Transform3D(3.1091, 0, 2.68948, 0, 4.11093, 0, -2.68948, 0, 3.1091, -10.5753, 4.07986, -3.55251)
 
-[node name="Chapple Tree4" parent="Trees" instance=ExtResource("6_xj576")]
+[node name="Chapple Tree4" parent="Foreground Trees" instance=ExtResource("6_xj576")]
 transform = Transform3D(-1.14264, 0, -3.94894, 0, 4.11093, 0, 3.94894, 0, -1.14264, -21.3839, 4.07986, -3.55251)
 
-[node name="Chapple Tree6" parent="Trees" instance=ExtResource("6_xj576")]
+[node name="Chapple Tree6" parent="Foreground Trees" instance=ExtResource("6_xj576")]
 transform = Transform3D(-3.05324, 0, 2.75272, 0, 4.11093, 0, -2.75272, 0, -3.05324, -32.3493, 4.07986, -3.55251)
 
-[node name="Chapple Tree7" parent="Trees" instance=ExtResource("6_xj576")]
+[node name="Chapple Tree7" parent="Foreground Trees" instance=ExtResource("6_xj576")]
 transform = Transform3D(3.32113, 0, 2.42278, 0, 4.11093, 0, -2.42278, 0, 3.32113, 26.2109, 4.07986, -3.55251)
 
+[node name="Background Trees" type="Node3D" parent="."]
+transform = Transform3D(0.916461, 0, 0.512444, 0, 1.05, 0, -0.512444, 0, 0.916461, 0, -1.713, -26.6426)
+
+[node name="Chapple Tree" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(4.11094, 0, 0, 0, 4.11094, 0, 0, 0, 4.11094, 0, 4.07986, -3.55251)
+
+[node name="Chapple Tree3" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(-1.06385, 0, 3.9709, 0, 4.11094, 0, -3.9709, 0, -1.06385, 8.12705, 4.07986, -3.55251)
+
+[node name="Chapple Tree5" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(-3.68851, 0, 1.81513, 0, 4.11094, 0, -1.81513, 0, -3.68851, 15.7793, 4.07986, -3.55251)
+
+[node name="Chapple Tree2" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(3.1091, 0, 2.68948, 0, 4.11093, 0, -2.68948, 0, 3.1091, -10.5753, 4.07986, -3.55251)
+
+[node name="Chapple Tree4" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(-1.14264, 0, -3.94894, 0, 4.11093, 0, 3.94894, 0, -1.14264, -21.3839, 4.07986, -3.55251)
+
+[node name="Chapple Tree6" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(-3.05324, 0, 2.75272, 0, 4.11093, 0, -2.75272, 0, -3.05324, -32.3493, 4.07986, -3.55251)
+
+[node name="Chapple Tree7" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(3.32113, 0, 2.42278, 0, 4.11093, 0, -2.42278, 0, 3.32113, 26.2109, 4.07986, -3.55251)
+
+[node name="Chapple Tree8" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(1.16158, 0, -3.94341, 0, 4.11093, 0, 3.94341, 0, 1.16158, 7.86249, 4.07986, -9.64109)
+
+[node name="Chapple Tree9" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(3.50848, 0, 2.14251, 0, 4.11093, 0, -2.14251, 0, 3.50848, 12.0781, 4.07986, 1.29982)
+
+[node name="Chapple Tree10" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(0.698942, 0, 4.05108, 0, 4.11093, 0, -4.05108, 0, 0.698942, 14.2404, 4.07986, 8.64026)
+
+[node name="Chapple Tree11" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(3.45839, 0, -2.22246, 0, 4.11093, 0, 2.22246, 0, 3.45839, 6.79361, 4.07986, -16.6404)
+
+[node name="Chapple Tree12" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(-4.11089, 0, -0.0197301, 0, 4.11093, 0, 0.0197301, 0, -4.11089, 3.73955, 4.07986, -27.0086)
+
+[node name="Chapple Tree13" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(1.77783, 0, 3.70663, 0, 4.11093, 0, -3.70663, 0, 1.77783, 0.641178, 4.07986, -37.5271)
+
+[node name="Chapple Tree14" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(3.26247, 0, -2.50121, 0, 4.11093, 0, 2.50121, 0, 3.26247, 17.1879, 4.07986, 18.6468)
+
+[node name="Chapple Tree15" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(0.917628, 0, 4.00721, 0, 4.11093, 0, -4.00721, 0, 0.917628, 11.5891, 4.07986, -7.6567)
+
+[node name="Chapple Tree16" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(-2.41066, 0, 3.32995, 0, 4.11093, 0, -3.32995, 0, -2.41066, 18.3521, 4.07986, -4.07644)
+
+[node name="Chapple Tree17" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(4.00613, 0, 0.922311, 0, 4.11093, 0, -0.922311, 0, 4.00613, -4.94005, 4.07986, -16.4069)
+
+[node name="Chapple Tree18" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(-2.85745, 0, -2.95546, 0, 4.11093, 0, 2.95546, 0, -2.85745, -14.4926, 4.07986, -21.4639)
+
+[node name="Chapple Tree19" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(-1.41054, 0, 3.86137, 0, 4.11093, 0, -3.86137, 0, -1.41054, -24.1838, 4.07986, -26.5943)
+
+[node name="Chapple Tree20" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(4.06875, 0, 0.587404, 0, 4.11093, 0, -0.587404, 0, 4.06875, 27.5716, 4.07986, 0.804169)
+
+[node name="Background Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(98.2418, 0, 0, 0, 47.0571, 0, 0, 0, 1.45784, 0, 16.5321, -76.0133)
+mesh = SubResource("BoxMesh_savek")
+
+[connection signal="pressed" from="UI/StartGamePanel/StartGameButton" to="ChappleManager" method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="UI/GameOverPanel/TryAgainButton" to="ChappleManager" method="_on_try_again_button_pressed"]
