@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://f41oppim13sw"
-path="res://.godot/imported/Wicker Basket.glb-e355415c3fc8c5fa6bc80abf2af0de8a.scn"
+uid="uid://cxtgxck7nlwoh"
+path="res://.godot/imported/Chapple Tree.glb-8e293cead737481c69f9817228b6e9c3.scn"
 
 [deps]
 
-source_file="res://Models/Wicker Basket.glb"
-dest_files=["res://.godot/imported/Wicker Basket.glb-e355415c3fc8c5fa6bc80abf2af0de8a.scn"]
+source_file="res://Models/Chapple Fall/Chapple Tree.glb"
+dest_files=["res://.godot/imported/Chapple Tree.glb-8e293cead737481c69f9817228b6e9c3.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bpemu87bthfgr"
-path="res://.godot/imported/Chapple.glb-d57d5bc7a3337910963c843c6c235a86.scn"
+path="res://.godot/imported/Chapple.glb-71d97c1ce92e26eef3d9fdab52607cf0.scn"
 
 [deps]
 
-source_file="res://Models/Chapple.glb"
-dest_files=["res://.godot/imported/Chapple.glb-d57d5bc7a3337910963c843c6c235a86.scn"]
+source_file="res://Models/Chapple Fall/Chapple.glb"
+dest_files=["res://.godot/imported/Chapple.glb-71d97c1ce92e26eef3d9fdab52607cf0.scn"]
 
 [params]
 

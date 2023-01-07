@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bcnn7js4xb6pm"
-path="res://.godot/imported/Wicker Basket Full.glb-baa1e211ec3bb559a66f1cdcd83012ef.scn"
+path="res://.godot/imported/Wicker Basket Full.glb-32f209b8b3c45418a577bfc8ff064141.scn"
 
 [deps]
 
-source_file="res://Models/Wicker Basket Full.glb"
-dest_files=["res://.godot/imported/Wicker Basket Full.glb-baa1e211ec3bb559a66f1cdcd83012ef.scn"]
+source_file="res://Models/Chapple Fall/Wicker Basket Full.glb"
+dest_files=["res://.godot/imported/Wicker Basket Full.glb-32f209b8b3c45418a577bfc8ff064141.scn"]
 
 [params]
 

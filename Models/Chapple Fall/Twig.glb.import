@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cxtgxck7nlwoh"
-path="res://.godot/imported/Chapple Tree.glb-3c606ad877b9ed4e78a0b912063a931d.scn"
+uid="uid://d3pvk3orsjaxe"
+path="res://.godot/imported/Twig.glb-433d7b69958cf22147872e454cf7cca6.scn"
 
 [deps]
 
-source_file="res://Models/Chapple Tree.glb"
-dest_files=["res://.godot/imported/Chapple Tree.glb-3c606ad877b9ed4e78a0b912063a931d.scn"]
+source_file="res://Models/Chapple Fall/Twig.glb"
+dest_files=["res://.godot/imported/Twig.glb-433d7b69958cf22147872e454cf7cca6.scn"]
 
 [params]
 
