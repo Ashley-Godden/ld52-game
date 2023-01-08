@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bir36xal0rjtb"]
+[gd_scene load_steps=3 format=3 uid="uid://bir36xal0rjtb"]
 
-[ext_resource type="PackedScene" uid="uid://3l6e4rmbj5lr" path="res://Models/Main Character/Main Character.glb" id="1_bb3xa"]
+[ext_resource type="PackedScene" uid="uid://cqetdp2p240v" path="res://Models/Cabbit Catcher/Grabber Arm.glb" id="1_ynbxu"]
+[ext_resource type="PackedScene" uid="uid://baiyitd0m4gqo" path="res://Models/Cabbit Catcher/Grabber_Cabbit.glb" id="2_8fb15"]
 
 [node name="Harry_Debug" type="Node3D"]
 
-[node name="Main Character" parent="." instance=ExtResource("1_bb3xa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.308242, 0, 0.199932)
+[node name="Grabber Arm" parent="." instance=ExtResource("1_ynbxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1321, 0, 2.66283)
+
+[node name="Grabber_Cabbit" parent="." instance=ExtResource("2_8fb15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0274954, -2.38419e-07, 1.94895)
