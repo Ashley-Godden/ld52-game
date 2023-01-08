@@ -5,6 +5,7 @@ public partial class Cabbit : RigidBody3D
 {
     private AnimationPlayer animationPlayer;
     private CabbitManager cabbitManager;
+    private Node3D cabbitMesh;
 
     private double justSpawnedTimer = GD.RandRange(0.5f, 1.5f);
     private double pokeOutTimer = GD.RandRange(2f, 3f);
@@ -12,6 +13,11 @@ public partial class Cabbit : RigidBody3D
     
     private float jumpForce = 18f;
     private float pokeSpeed = 4f;
+
+    private float randomRotSpeed = (float)GD.RandRange(0.9f, 2f);
+
+    // Random rotation degrees, either 180 or -180
+    private float randomRotDegrees = (float)GD.RandRange(0, 2) == 0 ? 180f : -180f;
 
     private enum State
     {
@@ -39,6 +45,7 @@ public partial class Cabbit : RigidBody3D
     {
         animationPlayer = GetNode<AnimationPlayer>("CabbitMesh/AnimationPlayer");
         cabbitManager = GetParent<CabbitManager>();
+        cabbitMesh = GetNode<Node3D>("CabbitMesh");
     }
 
     public override void _Process(double delta)
@@ -89,6 +96,15 @@ public partial class Cabbit : RigidBody3D
                     Freeze = false;
                     ApplyImpulse(Vector3.Up * jumpForce);
                 }
+
+                
+                // Check if current rotation is close to 180
+                if (Mathf.Abs(cabbitMesh.RotationDegrees.z - 180f) > 1f)
+                {
+                    // Rotate Z rotation of mesh either by negative or positive speed * delta. Depending on if randomRotDegrees is 180 or -180
+                    cabbitMesh.RotateZ(randomRotSpeed * (float)delta * (randomRotDegrees / Mathf.Abs(randomRotDegrees)));
+                }
+                
 
                 if (GlobalTransform.origin.y > -1f)
                 {

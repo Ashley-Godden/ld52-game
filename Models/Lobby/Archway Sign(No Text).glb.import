@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://7larg0fube0q"
-path="res://.godot/imported/Chapple Fall Sign.glb-82ecc3f0cc2fd2da120f072635207af7.scn"
+uid="uid://4c6ihctf0184"
+path="res://.godot/imported/Archway Sign(No Text).glb-216e65b5d9e472c498ad007d5ef54b81.scn"
 
 [deps]
 
-source_file="res://Models/BackGround Assets/Chapple Fall Sign.glb"
-dest_files=["res://.godot/imported/Chapple Fall Sign.glb-82ecc3f0cc2fd2da120f072635207af7.scn"]
+source_file="res://Models/Lobby/Archway Sign(No Text).glb"
+dest_files=["res://.godot/imported/Archway Sign(No Text).glb-216e65b5d9e472c498ad007d5ef54b81.scn"]
 
 [params]
 

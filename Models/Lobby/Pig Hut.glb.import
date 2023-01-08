@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://nj5msju4j4ca"
-path="res://.godot/imported/Cabbit Catcher Bin.glb-8b42f0d07bed16d69d2d3955da5b8b75.scn"
+uid="uid://cp54d7pfvadrt"
+path="res://.godot/imported/Pig Hut.glb-c7363cd18af8f83149b5d8a09f9e909c.scn"
 
 [deps]
 
-source_file="res://Models/BackGround Assets/Cabbit Catcher Bin.glb"
-dest_files=["res://.godot/imported/Cabbit Catcher Bin.glb-8b42f0d07bed16d69d2d3955da5b8b75.scn"]
+source_file="res://Models/Lobby/Pig Hut.glb"
+dest_files=["res://.godot/imported/Pig Hut.glb-c7363cd18af8f83149b5d8a09f9e909c.scn"]
 
 [params]
 

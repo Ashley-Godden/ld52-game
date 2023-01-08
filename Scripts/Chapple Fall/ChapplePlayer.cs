@@ -169,9 +169,9 @@ public partial class ChapplePlayer : CharacterBody3D
         }
     }
 
-    public void StartGame()
+    public void SetPaused(bool value)
     {
         // Set paused to false
-        paused = false;
+        paused = value;
     }
 }

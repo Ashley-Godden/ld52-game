@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 public partial class CabbitManager : Node
 {
@@ -17,13 +18,21 @@ public partial class CabbitManager : Node
 
     private List<Tuple<Vector3, bool>> spawnPoints;
 
+    private string username = "Player";
+    private string saveLoc;
     private int cabbitsCaught = 0;
     private int redCabbitsCaught = 0;
 
+    private List<Tuple<string, int>> highScores = new List<Tuple<string, int>>();
+
     private Label cabbitsCaughtLabel;
     private Label redCabbitsCaughtLabel;
+    private Label gameOverScoreLabel;
     private Panel gameOverPanel;
     private Panel startGamePanel;
+    private Panel highScorePanel;
+    private ItemList highScoreList;
+    private Label newHighScoreLabel;
 
     private Grabber grabber;
     
@@ -33,7 +42,7 @@ public partial class CabbitManager : Node
 
         spawnPoints = new List<Tuple<Vector3, bool>>();
         
-        // Add spawn points to dictionary
+        // Add spawn points to List
         for (int i = 1; i < 7; i++)
         {
             spawnPoints.Add(new Tuple<Vector3, bool>(spawnPointsNode.GetNode<Node3D>("Spawn" + i).GlobalTransform.origin, false));
@@ -41,11 +50,34 @@ public partial class CabbitManager : Node
 
         cabbitsCaughtLabel = GetNode<Label>("../UI/ScorePanel/ScoreLabel");
         redCabbitsCaughtLabel = GetNode<Label>("../UI/FailsPanel/FailsLabel");
+        gameOverScoreLabel = GetNode<Label>("../UI/GameOverPanel/ScoreLabel");
 
         gameOverPanel = GetNode<Panel>("../UI/GameOverPanel");
         startGamePanel = GetNode<Panel>("../UI/StartGamePanel");
 
+        highScorePanel = GetNode<Panel>("../UI/HighscorePanel");
+        highScoreList = highScorePanel.GetNode<ItemList>("List");
+        newHighScoreLabel = GetNode<Label>("../UI/NewHighscoreLabel");
+
         grabber = GetNode<Grabber>("../Grabber");
+
+        if (OS.HasEnvironment("USERNAME")) {
+            username = OS.GetEnvironment("USERNAME");
+        } else if (OS.HasEnvironment("USER")) {
+            username = OS.GetEnvironment("USER");
+        }
+
+        saveLoc = OS.GetUserDataDir() + "/Cabbit_Highscores.csv";
+        
+        LoadData();
+
+        if (highScores.Count == 0)
+        {
+            highScorePanel.Visible = false;
+            return;
+        }
+
+        UpdateHighscores();
     }
 
     public override void _Process(double delta)
@@ -106,6 +138,8 @@ public partial class CabbitManager : Node
                 GameOver();
             }
         }
+
+        cabbit.DespawnCabbit();
     }
 
     private int GetRandomSpawnPoint()
@@ -180,11 +214,74 @@ public partial class CabbitManager : Node
     private void GameOver()
     {
         gameOverPanel.Visible = true;
+        gameOverScoreLabel.Text = "Cabbits Caught: " + cabbitsCaught;
+
+        if (highScores.Count == 0 || cabbitsCaught > highScores[highScores.Count - 1].Item2)
+        {
+            newHighScoreLabel.Visible = true;
+
+            // Add new high score
+            highScores.Add(new Tuple<string, int>(username, cabbitsCaught));
+
+            // Save high scores
+            SaveData();
+        }
+        
+        UpdateHighscores();
+        highScorePanel.Visible = true;
+    }
+
+    private void UpdateHighscores() 
+    {
+        highScoreList.Clear();
+        foreach (Tuple<string, int> score in highScores)
+        {
+            highScoreList.AddItem(score.Item1 + " - " + score.Item2);
+        }
+    }
+
+    private void SaveData() 
+    {
+        StreamWriter file = File.CreateText(saveLoc);
+
+        file.WriteLine("Username,Cabbits Caught");
+
+        highScores.Sort((x, y) => y.Item2.CompareTo(x.Item2));
+        
+        foreach (Tuple<string, int> score in highScores)
+        {
+            file.WriteLine(score.Item1 + "," + score.Item2);
+        }
+
+        file.Close();
+    }
+
+    private void LoadData() 
+    {
+        if (File.Exists(saveLoc)) {
+            StreamReader file = File.OpenText(saveLoc);
+
+            // Skip first line
+            file.ReadLine();
+
+            while (!file.EndOfStream) {
+                string line = file.ReadLine();
+                string[] values = line.Split(',');
+
+                highScores.Add(new Tuple<string, int>(values[0], int.Parse(values[1])));
+            }
+
+            highScores.Sort((x, y) => y.Item2.CompareTo(x.Item2));
+
+            file.Close();
+        }
     }
 
     public void _on_start_game_button_pressed()
     {
         startGamePanel.Visible = false;
+        highScorePanel.Visible = false;
+        newHighScoreLabel.Visible = false;
         grabber.StartGame();
     }
 

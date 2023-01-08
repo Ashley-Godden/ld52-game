@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bvutvaw0er0tv"
-path="res://.godot/imported/Cabbit Catcher Sign.glb-54b6399d2c721b25583afa6b095cfe17.scn"
+uid="uid://cdwboh4dlupt4"
+path="res://.godot/imported/Undesignated Bin.glb-a53993cc4fa0f17b9ffe00709aa80ac4.scn"
 
 [deps]
 
-source_file="res://Models/BackGround Assets/Cabbit Catcher Sign.glb"
-dest_files=["res://.godot/imported/Cabbit Catcher Sign.glb-54b6399d2c721b25583afa6b095cfe17.scn"]
+source_file="res://Models/Lobby/Undesignated Bin.glb"
+dest_files=["res://.godot/imported/Undesignated Bin.glb-a53993cc4fa0f17b9ffe00709aa80ac4.scn"]
 
 [params]
 

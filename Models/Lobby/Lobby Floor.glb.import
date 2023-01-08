@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d1d6i0dyt17jd"
-path="res://.godot/imported/Lobby Floor.glb-1bdb9b2e1f7697868de0d3dba52616ef.scn"
+path="res://.godot/imported/Lobby Floor.glb-ee80f15678c7f01159b4f531987ce6ad.scn"
 
 [deps]
 
-source_file="res://Models/BackGround Assets/Lobby Floor.glb"
-dest_files=["res://.godot/imported/Lobby Floor.glb-1bdb9b2e1f7697868de0d3dba52616ef.scn"]
+source_file="res://Models/Lobby/Lobby Floor.glb"
+dest_files=["res://.godot/imported/Lobby Floor.glb-ee80f15678c7f01159b4f531987ce6ad.scn"]
 
 [params]
 

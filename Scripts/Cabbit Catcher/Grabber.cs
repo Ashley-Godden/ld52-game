@@ -114,8 +114,6 @@ public partial class Grabber : RigidBody3D
                 grabberArmEmpty.Visible = false;
                 grabberArmFull.Visible = true;
             }
-
-            body.QueueFree();
         }
     }
 

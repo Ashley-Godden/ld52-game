@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cdwboh4dlupt4"
-path="res://.godot/imported/Undesignated Bin.glb-cf91b8fc1be9db3a66f9de9dbd57f656.scn"
+uid="uid://buq7q3tnih7f8"
+path="res://.godot/imported/Chapple Fall Bin.glb-303f3cd5c2ed79d6f3bd485acfadb14a.scn"
 
 [deps]
 
-source_file="res://Models/BackGround Assets/Undesignated Bin.glb"
-dest_files=["res://.godot/imported/Undesignated Bin.glb-cf91b8fc1be9db3a66f9de9dbd57f656.scn"]
+source_file="res://Models/Lobby/Chapple Fall Bin.glb"
+dest_files=["res://.godot/imported/Chapple Fall Bin.glb-303f3cd5c2ed79d6f3bd485acfadb14a.scn"]
 
 [params]
 

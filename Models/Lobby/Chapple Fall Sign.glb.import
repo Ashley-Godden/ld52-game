@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cp54d7pfvadrt"
-path="res://.godot/imported/Pig Hut.glb-e1952afc94aa1397f7fe78fc2b576804.scn"
+uid="uid://7larg0fube0q"
+path="res://.godot/imported/Chapple Fall Sign.glb-f764b7e1bef7a41f17794edb2161831d.scn"
 
 [deps]
 
-source_file="res://Models/BackGround Assets/Pig Hut.glb"
-dest_files=["res://.godot/imported/Pig Hut.glb-e1952afc94aa1397f7fe78fc2b576804.scn"]
+source_file="res://Models/Lobby/Chapple Fall Sign.glb"
+dest_files=["res://.godot/imported/Chapple Fall Sign.glb-f764b7e1bef7a41f17794edb2161831d.scn"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bq8ny8ukrjcb7"]
+[gd_scene load_steps=21 format=3 uid="uid://bq8ny8ukrjcb7"]
 
 [ext_resource type="PackedScene" uid="uid://bmy42lk1w5muc" path="res://Prefabs/Chapple Fall/ChapplePlayer.tscn" id="1_urtw0"]
 [ext_resource type="Environment" uid="uid://dpwo2jkg4lb0r" path="res://Environments/Chapple_Env.tres" id="2_4fnyv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c2wvrdljdv6ob" path="res://Prefabs/Chapple Fall/Chapple.tscn" id="4_qxqik"]
 [ext_resource type="PackedScene" uid="uid://dw4a7c3le7upi" path="res://Prefabs/Chapple Fall/Twig.tscn" id="5_3nv62"]
 [ext_resource type="PackedScene" uid="uid://cxtgxck7nlwoh" path="res://Models/Chapple Fall/Chapple Tree.glb" id="6_xj576"]
+[ext_resource type="PackedScene" uid="uid://ba8hu6f6e0ri4" path="res://Models/BackGround Assets/Bush.glb" id="7_axdcy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nemx7"]
 
@@ -32,6 +33,12 @@ font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_hkngm"]
 font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_8u7c0"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_me7ix"]
+font_size = 32
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f36am"]
 albedo_color = Color(6.83457e-06, 0.657962, 7.70092e-07, 1)
@@ -362,6 +369,54 @@ label_settings = SubResource("LabelSettings_hkngm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HighscorePanel" type="Panel" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.5
+offset_top = -286.0
+offset_right = 205.5
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Title" type="Label" parent="UI/HighscorePanel"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Highscores"
+label_settings = SubResource("LabelSettings_8u7c0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="List" type="ItemList" parent="UI/HighscorePanel"]
+anchors_preset = -1
+anchor_top = 0.177
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0950012
+grow_horizontal = 2
+grow_vertical = 0
+same_column_width = true
+
+[node name="NewHighscoreLabel" type="Label" parent="UI"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -145.0
+offset_top = 19.0
+offset_right = 145.0
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "NEW HIGHSCORE!!!"
+label_settings = SubResource("LabelSettings_me7ix")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Foreground Trees" type="Node3D" parent="."]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, -1.713, -4.563)
 
@@ -386,71 +441,143 @@ transform = Transform3D(-3.05324, 0, 2.75272, 0, 4.11093, 0, -2.75272, 0, -3.053
 [node name="Chapple Tree7" parent="Foreground Trees" instance=ExtResource("6_xj576")]
 transform = Transform3D(3.32113, 0, 2.42278, 0, 4.11093, 0, -2.42278, 0, 3.32113, 26.2109, 4.07986, -3.55251)
 
+[node name="Bushes" type="Node3D" parent="."]
+transform = Transform3D(0.916461, 0, 0.512444, 0, 1.05, 0, -0.512444, 0, 0.916461, 0, -1.713, -26.6426)
+
+[node name="Bush" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(0.748886, 0, -0.662699, 0, 1, 0, 0.662699, 0, 0.748886, -9.62904, 4.54332, 19.1577)
+
+[node name="Bush2" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(0.748886, 0, -0.662699, 0, 1, 0, 0.662699, 0, 0.748886, -14.4956, 4.54332, 16.4365)
+
+[node name="Bush3" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(0.748886, 0, -0.662699, 0, 1, 0, 0.662699, 0, 0.748886, -23.7977, 4.54332, 11.2352)
+
+[node name="Bush4" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(0.880218, 0, 0.187658, 0, 0.9, 0, -0.187658, 0, 0.880218, -20.6399, 4.54332, 5.58775)
+
+[node name="Bush5" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(0.880219, 0, 0.187658, 0, 0.9, 0, -0.187658, 0, 0.880219, -9.43814, 4.54332, 11.8513)
+
+[node name="Bush6" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(0.880219, 0, 0.187658, 0, 0.9, 0, -0.187658, 0, 0.880219, 3.81989, 4.54332, 19.2646)
+
+[node name="Bush7" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(0.684614, 0, 0.145956, 0, 0.7, 0, -0.145956, 0, 0.684614, -1.13674, 4.54332, 9.15911)
+
+[node name="Bush8" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(-0.345006, 0, -0.609074, 0, 0.7, 0, 0.609074, 0, -0.345006, -23.3675, 4.54332, -3.27132)
+
+[node name="Bush9" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(-0.295719, 0, -0.522063, 0, 0.6, 0, 0.522063, 0, -0.295719, -26.2858, 4.54332, -12.7155)
+
+[node name="Bush10" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(-0.295719, 0, -0.522063, 0, 0.6, 0, 0.522063, 0, -0.295719, -9.82248, 4.54332, -3.50989)
+
+[node name="Bush11" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(-0.295719, 0, -0.522063, 0, 0.6, 0, 0.522063, 0, -0.295719, 3.86804, 4.16833, 4.4716)
+
+[node name="Bush12" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(-0.295719, 0, -0.522063, 0, 0.6, 0, 0.522063, 0, -0.295719, 11.847, 4.16833, 8.93311)
+
+[node name="Bush13" parent="Bushes" instance=ExtResource("7_axdcy")]
+transform = Transform3D(-0.470753, 0, -0.168497, 0, 0.5, 0, 0.168497, 0, -0.470753, -1.53278, 4.16833, -6.04597)
+
 [node name="Background Trees" type="Node3D" parent="."]
 transform = Transform3D(0.916461, 0, 0.512444, 0, 1.05, 0, -0.512444, 0, 0.916461, 0, -1.713, -26.6426)
 
 [node name="Chapple Tree" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(4.11094, 0, 0, 0, 4.11094, 0, 0, 0, 4.11094, 0, 4.07986, -3.55251)
-
-[node name="Chapple Tree3" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(-1.06385, 0, 3.9709, 0, 4.11094, 0, -3.9709, 0, -1.06385, 8.12705, 4.07986, -3.55251)
-
-[node name="Chapple Tree5" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(-3.68851, 0, 1.81513, 0, 4.11094, 0, -1.81513, 0, -3.68851, 15.7793, 4.07986, -3.55251)
+transform = Transform3D(3.58811, 0, -2.00631, 0, 4.11094, 0, 2.00631, 0, 3.58811, -3.77296, 4.07986, 6.7476)
 
 [node name="Chapple Tree2" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(3.1091, 0, 2.68948, 0, 4.11093, 0, -2.68948, 0, 3.1091, -10.5753, 4.07986, -3.55251)
+transform = Transform3D(4.0838, 0, 0.471646, 0, 4.11094, 0, -0.471646, 0, 4.0838, 3.89387, 4.07986, 11.0345)
+
+[node name="Chapple Tree3" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(2.90601, 0, 2.90774, 0, 4.11094, 0, -2.90774, 0, 2.90601, 11.0045, 4.07986, 15.0105)
 
 [node name="Chapple Tree4" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(-1.14264, 0, -3.94894, 0, 4.11093, 0, 3.94894, 0, -1.14264, -21.3839, 4.07986, -3.55251)
+transform = Transform3D(2.35612, 0, -3.36876, 0, 4.11094, 0, 3.36876, 0, 2.35612, -15.2096, 4.07986, 0.352737)
+
+[node name="Chapple Tree5" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(2.00597, 0, -2.86812, 0, 3.5, 0, 2.86812, 0, 2.00597, -5.89154, 4.07986, -4.93169)
 
 [node name="Chapple Tree6" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(-3.05324, 0, 2.75272, 0, 4.11093, 0, -2.75272, 0, -3.05324, -32.3493, 4.07986, -3.55251)
+transform = Transform3D(2.00597, 0, -2.86812, 0, 3.5, 0, 2.86812, 0, 2.00597, -20.9643, 4.07986, -13.3597)
 
 [node name="Chapple Tree7" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(3.32113, 0, 2.42278, 0, 4.11093, 0, -2.42278, 0, 3.32113, 26.2109, 4.07986, -3.55251)
+transform = Transform3D(2.00597, 0, -2.86812, 0, 3.5, 0, 2.86812, 0, 2.00597, 3.46024, 4.07986, 0.297407)
 
 [node name="Chapple Tree8" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(1.16158, 0, -3.94341, 0, 4.11093, 0, 3.94341, 0, 1.16158, 7.86249, 4.07986, -9.64109)
+transform = Transform3D(2.00597, 0, -2.86812, 0, 3.5, 0, 2.86812, 0, 2.00597, 18.7058, 4.07986, 8.82206)
 
 [node name="Chapple Tree9" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(3.50848, 0, 2.14251, 0, 4.11093, 0, -2.14251, 0, 3.50848, 12.0781, 4.07986, 1.29982)
+transform = Transform3D(1.7194, 0, -2.45839, 0, 3, 0, 2.45839, 0, 1.7194, 14.5465, 4.07986, -2.28814)
 
 [node name="Chapple Tree10" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(0.698942, 0, 4.05108, 0, 4.11093, 0, -4.05108, 0, 0.698942, 14.2404, 4.07986, 8.64026)
+transform = Transform3D(1.7194, 0, -2.45839, 0, 3, 0, 2.45839, 0, 1.7194, -9.01157, 4.07986, -15.4608)
 
 [node name="Chapple Tree11" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(3.45839, 0, -2.22246, 0, 4.11093, 0, 2.22246, 0, 3.45839, 6.79361, 4.07986, -16.6404)
+transform = Transform3D(1.7194, 0, -2.45839, 0, 3, 0, 2.45839, 0, 1.7194, -28.076, 4.07986, -26.1207)
 
 [node name="Chapple Tree12" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(-4.11089, 0, -0.0197301, 0, 4.11093, 0, 0.0197301, 0, -4.11089, 3.73955, 4.07986, -27.0086)
+transform = Transform3D(1.7194, 0, -2.45839, 0, 3, 0, 2.45839, 0, 1.7194, 1.72488, 4.07986, -9.45742)
 
 [node name="Chapple Tree13" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(1.77783, 0, 3.70663, 0, 4.11093, 0, -3.70663, 0, 1.77783, 0.641178, 4.07986, -37.5271)
+transform = Transform3D(1.43283, 0, -2.04866, 0, 2.5, 0, 2.04866, 0, 1.43283, 5.71687, 4.07986, -16.5967)
 
 [node name="Chapple Tree14" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(3.26247, 0, -2.50121, 0, 4.11093, 0, 2.50121, 0, 3.26247, 17.1879, 4.07986, 18.6468)
+transform = Transform3D(1.43283, 0, -2.04866, 0, 2.5, 0, 2.04866, 0, 1.43283, 21.4775, 4.07986, -7.78407)
 
 [node name="Chapple Tree15" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(0.917628, 0, 4.00721, 0, 4.11093, 0, -4.00721, 0, 0.917628, 11.5891, 4.07986, -7.6567)
+transform = Transform3D(1.43283, 0, -2.04866, 0, 2.5, 0, 2.04866, 0, 1.43283, -6.03074, 4.07986, -23.1655)
 
 [node name="Chapple Tree16" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(-2.41066, 0, 3.32995, 0, 4.11093, 0, -3.32995, 0, -2.41066, 18.3521, 4.07986, -4.07644)
+transform = Transform3D(1.43283, 0, -2.04866, 0, 2.5, 0, 2.04866, 0, 1.43283, -18.1016, 4.07986, -29.915)
 
 [node name="Chapple Tree17" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(4.00613, 0, 0.922311, 0, 4.11093, 0, -0.922311, 0, 4.00613, -4.94005, 4.07986, -16.4069)
+transform = Transform3D(1.14627, 0, -1.63893, 0, 2, 0, 1.63893, 0, 1.14627, -13.2522, 4.3088, -37.8809)
 
 [node name="Chapple Tree18" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(-2.85745, 0, -2.95546, 0, 4.11093, 0, 2.95546, 0, -2.85745, -14.4926, 4.07986, -21.4639)
+transform = Transform3D(1.14627, 0, -1.63893, 0, 2, 0, 1.63893, 0, 1.14627, 1.60814, 4.3088, -29.5717)
 
 [node name="Chapple Tree19" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(-1.41054, 0, 3.86137, 0, 4.11093, 0, -3.86137, 0, -1.41054, -24.1838, 4.07986, -26.5943)
+transform = Transform3D(1.14627, 0, -1.63893, 0, 2, 0, 1.63893, 0, 1.14627, 17.2489, 4.3088, -20.826)
 
 [node name="Chapple Tree20" parent="Background Trees" instance=ExtResource("6_xj576")]
-transform = Transform3D(4.06875, 0, 0.587404, 0, 4.11093, 0, -0.587404, 0, 4.06875, 27.5716, 4.07986, 0.804169)
+transform = Transform3D(1.14627, 0, -1.63893, 0, 2, 0, 1.63893, 0, 1.14627, 28.1595, 4.3088, -14.7254)
+
+[node name="Chapple Tree21" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(0.859699, 0, -1.22919, 0, 1.5, 0, 1.22919, 0, 0.859699, 32.313, 4.3088, -22.1536)
+
+[node name="Chapple Tree22" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(0.859699, 0, -1.22919, 0, 1.5, 0, 1.22919, 0, 0.859699, 25.8788, 4.3088, -25.7513)
+
+[node name="Chapple Tree23" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(0.859699, 0, -1.22919, 0, 1.5, 0, 1.22919, 0, 0.859699, 19.9885, 4.3088, -29.0449)
+
+[node name="Chapple Tree24" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(0.859699, 0, -1.22919, 0, 1.5, 0, 1.22919, 0, 0.859699, 28.9593, 4.3088, -24.0288)
+
+[node name="Chapple Tree25" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(0.859699, 0, -1.22919, 0, 1.5, 0, 1.22919, 0, 0.859699, 22.3918, 4.3088, -27.7011)
+
+[node name="Chapple Tree26" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(0.859699, 0, -1.22919, 0, 1.5, 0, 1.22919, 0, 0.859699, 16.0968, 4.3088, -31.221)
+
+[node name="Chapple Tree27" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(0.859699, 0, -1.22919, 0, 1.5, 0, 1.22919, 0, 0.859699, 12.711, 4.3088, -33.1142)
+
+[node name="Chapple Tree28" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(0.859699, 0, -1.22919, 0, 1.5, 0, 1.22919, 0, 0.859699, 7.80792, 4.3088, -35.8557)
+
+[node name="Chapple Tree29" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(0.859699, 0, -1.22919, 0, 1.5, 0, 1.22919, 0, 0.859699, 2.54592, 4.3088, -38.798)
+
+[node name="Chapple Tree30" parent="Background Trees" instance=ExtResource("6_xj576")]
+transform = Transform3D(0.859699, 0, -1.22919, 0, 1.5, 0, 1.22919, 0, 0.859699, -3.33005, 4.3088, -42.0836)
 
 [node name="Background Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(98.2418, 0, 0, 0, 47.0571, 0, 0, 0, 1.45784, 0, 16.5321, -76.0133)
+transform = Transform3D(98.2418, 0, 0, 0, 47.0571, 0, 0, 0, 1.45784, 0, -19.6684, -76.0133)
 mesh = SubResource("BoxMesh_savek")
 
 [connection signal="pressed" from="UI/StartGamePanel/StartGameButton" to="ChappleManager" method="_on_start_game_button_pressed"]

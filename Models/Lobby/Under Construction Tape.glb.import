@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://4c6ihctf0184"
-path="res://.godot/imported/Archway Sign(No Text).glb-d7697606f6659e6d7e36fce8879f767e.scn"
+uid="uid://c67c180ro3hfi"
+path="res://.godot/imported/Under Construction Tape.glb-433eb7b05d4f85e75cee4a1595e30178.scn"
 
 [deps]
 
-source_file="res://Models/BackGround Assets/Archway Sign(No Text).glb"
-dest_files=["res://.godot/imported/Archway Sign(No Text).glb-d7697606f6659e6d7e36fce8879f767e.scn"]
+source_file="res://Models/Lobby/Under Construction Tape.glb"
+dest_files=["res://.godot/imported/Under Construction Tape.glb-433eb7b05d4f85e75cee4a1595e30178.scn"]
 
 [params]
 

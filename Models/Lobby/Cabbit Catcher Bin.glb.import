@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c67c180ro3hfi"
-path="res://.godot/imported/Under Construction Tape.glb-e20bf57e6789c98bddd55330f4bf4976.scn"
+uid="uid://nj5msju4j4ca"
+path="res://.godot/imported/Cabbit Catcher Bin.glb-c3d6cc1cf6576b7bc0119feec77d147b.scn"
 
 [deps]
 
-source_file="res://Models/BackGround Assets/Under Construction Tape.glb"
-dest_files=["res://.godot/imported/Under Construction Tape.glb-e20bf57e6789c98bddd55330f4bf4976.scn"]
+source_file="res://Models/Lobby/Cabbit Catcher Bin.glb"
+dest_files=["res://.godot/imported/Cabbit Catcher Bin.glb-c3d6cc1cf6576b7bc0119feec77d147b.scn"]
 
 [params]
 

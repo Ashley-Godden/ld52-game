@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://buq7q3tnih7f8"
-path="res://.godot/imported/Chapple Fall Bin.glb-f54fda0cdadd9ab8753f729a5d6b1538.scn"
+uid="uid://bvutvaw0er0tv"
+path="res://.godot/imported/Cabbit Catcher Sign.glb-54d53d7fa8bccc3f9af79f10c0f747a0.scn"
 
 [deps]
 
-source_file="res://Models/BackGround Assets/Chapple Fall Bin.glb"
-dest_files=["res://.godot/imported/Chapple Fall Bin.glb-f54fda0cdadd9ab8753f729a5d6b1538.scn"]
+source_file="res://Models/Lobby/Cabbit Catcher Sign.glb"
+dest_files=["res://.godot/imported/Cabbit Catcher Sign.glb-54d53d7fa8bccc3f9af79f10c0f747a0.scn"]
 
 [params]
 
