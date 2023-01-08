@@ -36,7 +36,7 @@ redCabbitPrefab = ExtResource("3_t710x")
 environment = ExtResource("1_6t6kn")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
-transform = Transform3D(164.574, 0, 0, 0, 1.93664, 0, 0, 0, 1, 0, -0.463306, 0)
+transform = Transform3D(164.574, 0, 0, 0, 1.93664, 0, 0, 0, 8.24968, 0, -0.463306, 0)
 mesh = SubResource("BoxMesh_y3n4v")
 
 [node name="MainCamera" type="Camera3D" parent="."]
@@ -45,6 +45,7 @@ projection = 1
 size = 20.0
 
 [node name="SpawnPoints" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.453043, 0)
 
 [node name="Spawn1" type="Node3D" parent="SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58235, -0.497202, 0)
@@ -68,7 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.56437, -0.497202, 0)
 transform = Transform3D(1, 0, 0, 0, 0.342184, 0.939633, 0, -0.939633, 0.342184, 0, 2.65077, 4.41154)
 
 [node name="Grabber" parent="." instance=ExtResource("5_17dnk")]
-transform = Transform3D(1, 0, 0, 0, 0.93358, -0.358368, 0, 0.358368, 0.93358, -19.3148, 1.66432, 0)
+transform = Transform3D(1, 0, 0, 0, 0.93358, -0.358368, 0, 0.358368, 0.93358, -19.3148, 2.55261, 0)
 
 [node name="GrabberEndPosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89945, 1.25421, 0)
@@ -82,6 +83,7 @@ offset_right = 182.0
 offset_bottom = 52.0
 
 [node name="ScoreLabel" type="Label" parent="UI/ScorePanel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -103,6 +105,7 @@ offset_bottom = 52.0
 grow_horizontal = 0
 
 [node name="FailsLabel" type="Label" parent="UI/FailsPanel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -127,6 +130,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ChappleFallLabel" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 26.0
@@ -136,6 +140,7 @@ label_settings = SubResource("LabelSettings_dlene")
 horizontal_alignment = 1
 
 [node name="DescriptionLabel" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.187
 anchor_right = 1.0
@@ -149,6 +154,7 @@ label_settings = SubResource("LabelSettings_v8s7s")
 horizontal_alignment = 1
 
 [node name="DescriptionLabel2" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.348
 anchor_right = 1.0
@@ -164,6 +170,7 @@ text = "Use space to extend the grabber
 label_settings = SubResource("LabelSettings_v8s7s")
 
 [node name="DescriptionLabel3" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 1.0
@@ -181,6 +188,7 @@ label_settings = SubResource("LabelSettings_v8s7s")
 [node name="StartGameButton" type="Button" parent="UI/StartGamePanel"]
 modulate = Color(0.32549, 1, 0.298039, 1)
 clip_children = 2
+layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -191,6 +199,7 @@ offset_bottom = -9.89
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/StartGamePanel/StartGameButton"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -203,6 +212,7 @@ vertical_alignment = 1
 
 [node name="BackToHubButton" type="Button" parent="UI/StartGamePanel"]
 modulate = Color(0.180392, 0.411765, 1, 1)
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
@@ -216,6 +226,7 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/StartGamePanel/BackToHubButton"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -241,6 +252,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameOverLabel" type="Label" parent="UI/GameOverPanel"]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 26.0
@@ -250,6 +262,7 @@ label_settings = SubResource("LabelSettings_dlene")
 horizontal_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="UI/GameOverPanel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.164
 anchor_top = 0.273
@@ -265,6 +278,7 @@ label_settings = SubResource("LabelSettings_v8s7s")
 [node name="TryAgainButton" type="Button" parent="UI/GameOverPanel"]
 modulate = Color(0.32549, 1, 0.298039, 1)
 clip_children = 2
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.221
 anchor_top = 0.644
@@ -277,6 +291,7 @@ offset_bottom = 15.572
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/GameOverPanel/TryAgainButton"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -289,6 +304,7 @@ vertical_alignment = 1
 
 [node name="BackToHubButton" type="Button" parent="UI/GameOverPanel"]
 modulate = Color(0.180392, 0.411765, 1, 1)
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.767
 anchor_top = 0.644
@@ -302,6 +318,7 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/GameOverPanel/BackToHubButton"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

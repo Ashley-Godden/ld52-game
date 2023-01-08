@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Cabbit Catcher/Cabbit.cs" id="1_770ex"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qtoqn"]
-size = Vector3(0.455661, 1.56246, 0.584706)
+size = Vector3(0.70904, 2.60324, 0.797887)
 
 [node name="RedCabbit" type="RigidBody3D"]
 freeze = true
@@ -12,11 +12,11 @@ script = ExtResource("1_770ex")
 cabbitType = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.149478, -0.091145)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.251989, 0.072872)
 shape = SubResource("BoxShape3D_qtoqn")
 
 [node name="CabbitMesh" parent="." instance=ExtResource("1_54xlr")]
-transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0, 0, 0)
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0, 0)
 
 [node name="BoneAttachment3D" parent="CabbitMesh/Cabbit/Armature002/Skeleton3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.336611, 1.00358, -0.0130729)

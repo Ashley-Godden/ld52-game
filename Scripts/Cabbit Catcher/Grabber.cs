@@ -7,6 +7,9 @@ public partial class Grabber : RigidBody3D
 
     private CollisionShape3D collisionShape3D;
 
+    private Node3D grabberArmEmpty;
+    private Node3D grabberArmFull;
+
     private float grabberSpeed = 1f;
     
     private Vector3 grabberStartPosition;
@@ -27,14 +30,16 @@ public partial class Grabber : RigidBody3D
     public override void _Ready()
     {
         animationPlayer = GetNode<AnimationPlayer>("GrabberArmEmpty/AnimationPlayer");
-
         animationPlayer.PlaybackDefaultBlendTime = 1f;
         animationPlayer.PlaybackSpeed = 1.5f;
 
+        grabberArmEmpty = GetNode<Node3D>("GrabberArmEmpty");
+        grabberArmFull = GetNode<Node3D>("GrabberArmFull");
+
         collisionShape3D = GetNode<CollisionShape3D>("CollisionShape3D");
 
-        grabberStartPosition = Position;
-        grabberEndPosition = GetNode<Node3D>("../GrabberEndPosition").Position;
+        grabberStartPosition = GlobalPosition;
+        grabberEndPosition = GetNode<Node3D>("../GrabberEndPosition").GlobalPosition;
 
         cabbitManager = GetNode<CabbitManager>("../CabbitManager");
     }
@@ -46,13 +51,19 @@ public partial class Grabber : RigidBody3D
             return;
         }
 
-        Vector3 position = Position;
+        Vector3 position = GlobalPosition;
 
         switch (grabberState)
         {
             case GrabberState.MovingToStartPosition:
-                if (Position.DistanceTo(grabberStartPosition) < 1f)
+                if (GlobalPosition.DistanceTo(grabberStartPosition) < 2f)
                 {
+                    if (!grabberArmEmpty.Visible)
+                    {
+                        grabberArmEmpty.Visible = true;
+                        grabberArmFull.Visible = false;
+                    }
+
                     // Check if space key is pressed
                     if (Input.IsActionJustPressed("ui_accept"))
                     {
@@ -63,14 +74,17 @@ public partial class Grabber : RigidBody3D
                     }
                 }
                 
-                position.x = Mathf.Lerp(Position.x, grabberStartPosition.x, grabberSpeed * (float)delta);
-                Position = position;
+                position.x = Mathf.Lerp(GlobalPosition.x, grabberStartPosition.x, grabberSpeed * (float)delta);
+                GlobalPosition = position;
                 break;
             case GrabberState.MovingToEndPosition:
-                if (Position.DistanceTo(grabberEndPosition) < 1f)
+                if (GlobalPosition.DistanceTo(grabberEndPosition) < 2f)
                 {
-                    animationPlayer.Stop();
-                    animationPlayer.Play("Null");
+                    if (grabberArmEmpty.Visible)
+                    {
+                        animationPlayer.Stop();
+                        animationPlayer.Play("Null");
+                    }
 
                     // Disable collision detection
                     collisionShape3D.Disabled = true;
@@ -78,13 +92,13 @@ public partial class Grabber : RigidBody3D
                     break;
                 }
 
-                if (!animationPlayer.IsPlaying())
+                if (!animationPlayer.IsPlaying() && grabberArmEmpty.Visible)
                 {
                     animationPlayer.Play("Grab");
                 }
 
-                position.x = Mathf.Lerp(Position.x, grabberEndPosition.x, grabberSpeed * (float)delta);
-                Position = position;
+                position.x = Mathf.Lerp(GlobalPosition.x, grabberEndPosition.x, grabberSpeed * (float)delta);
+                GlobalPosition = position;
                 break;
         }
     }
@@ -94,6 +108,13 @@ public partial class Grabber : RigidBody3D
         if (body is Cabbit cabbit)
         {
             cabbitManager.CabbitCaught(cabbit);
+
+            if (cabbit.GetCabbitType() == Cabbit.CabbitType.Cabbit)
+            {
+                grabberArmEmpty.Visible = false;
+                grabberArmFull.Visible = true;
+            }
+
             body.QueueFree();
         }
     }

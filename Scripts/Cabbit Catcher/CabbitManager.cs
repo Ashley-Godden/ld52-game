@@ -34,7 +34,7 @@ public partial class CabbitManager : Node
         spawnPoints = new List<Tuple<Vector3, bool>>();
         
         // Add spawn points to dictionary
-        for (int i = 1; i < 6; i++)
+        for (int i = 1; i < 7; i++)
         {
             spawnPoints.Add(new Tuple<Vector3, bool>(spawnPointsNode.GetNode<Node3D>("Spawn" + i).GlobalTransform.origin, false));
         }

@@ -10,8 +10,8 @@ public partial class Cabbit : RigidBody3D
     private double pokeOutTimer = GD.RandRange(2f, 3f);
     private double pokeInTimer = GD.RandRange(1f, 2f);
     
-    private float jumpForce = 13.2f;
-    private float pokeSpeed = 3.5f;
+    private float jumpForce = 18f;
+    private float pokeSpeed = 4f;
 
     private enum State
     {
@@ -60,10 +60,10 @@ public partial class Cabbit : RigidBody3D
                 break;
             case State.PokeOut:
                 position = GlobalTransform.origin;
-                position.y = Mathf.Lerp(position.y, 0.3f, pokeSpeed * (float)delta);
+                position.y = Mathf.Lerp(position.y, 0.25f, pokeSpeed * (float)delta);
                 GlobalTransform = new Transform3D(Basis.Identity, position);
 
-                if (pokeOutTimer > 0 && position.y < 0.3f)
+                if (pokeOutTimer > 0 && position.y < 0.25f)
                 {
                     pokeOutTimer -= delta;
                     break;
@@ -73,10 +73,10 @@ public partial class Cabbit : RigidBody3D
                 break;
             case State.PokeIn:
                 position = GlobalTransform.origin;
-                position.y = Mathf.Lerp(position.y, -0.4f, pokeSpeed * (float)delta);
+                position.y = Mathf.Lerp(position.y, -0.8f, pokeSpeed * (float)delta);
                 GlobalTransform = new Transform3D(Basis.Identity, position);
 
-                if (pokeInTimer > 0 && position.y > -0.4f)
+                if (pokeInTimer > 0 && position.y > -0.75f)
                 {
                     pokeInTimer -= delta;
                     break;
@@ -90,7 +90,7 @@ public partial class Cabbit : RigidBody3D
                     ApplyImpulse(Vector3.Up * jumpForce);
                 }
 
-                if (GlobalTransform.origin.y > -0.4f)
+                if (GlobalTransform.origin.y > -1f)
                 {
                     break;
                 }
