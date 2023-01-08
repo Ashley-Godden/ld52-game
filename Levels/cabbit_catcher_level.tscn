@@ -1,0 +1,316 @@
+[gd_scene load_steps=13 format=3 uid="uid://c88pmtg6wa2dt"]
+
+[ext_resource type="PackedScene" uid="uid://3l6e4rmbj5lr" path="res://Models/Main Character/Main Character.glb" id="1_3c1tp"]
+[ext_resource type="Environment" uid="uid://m4ylac2eeqev" path="res://Environments/Cabbit_Env.tres" id="1_6t6kn"]
+[ext_resource type="Script" path="res://Scripts/Cabbit Catcher/CabbitManager.cs" id="1_wyymy"]
+[ext_resource type="PackedScene" uid="uid://205qf6tgsbee" path="res://Prefabs/Cabbit Catcher/Cabbit.tscn" id="2_m5jjx"]
+[ext_resource type="Script" path="res://Scripts/Cabbit Catcher/MainCharacterIdle.cs" id="2_vpurr"]
+[ext_resource type="PackedScene" uid="uid://ft7ec248w61a" path="res://Prefabs/Cabbit Catcher/RedCabbit.tscn" id="3_t710x"]
+[ext_resource type="PackedScene" uid="uid://cvjk32i0a5hd5" path="res://Prefabs/Cabbit Catcher/Grabber.tscn" id="5_17dnk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y3n4v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dlene"]
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_v8s7s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_upce0"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_fhft2"]
+font_size = 18
+
+[node name="CabbitCatcher" type="Node3D"]
+
+[node name="Main Character" parent="." instance=ExtResource("1_3c1tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.9111, 3.70065, -1.86384)
+script = ExtResource("2_vpurr")
+
+[node name="CabbitManager" type="Node" parent="."]
+script = ExtResource("1_wyymy")
+cabbitPrefab = ExtResource("2_m5jjx")
+redCabbitPrefab = ExtResource("3_t710x")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_6t6kn")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(164.574, 0, 0, 0, 1.93664, 0, 0, 0, 1, 0, -0.463306, 0)
+mesh = SubResource("BoxMesh_y3n4v")
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.341, 9.227, 6.757)
+projection = 1
+size = 20.0
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="Spawn1" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58235, -0.497202, 0)
+
+[node name="Spawn2" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59889, -0.497202, 0)
+
+[node name="Spawn3" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.330229, -0.497202, 0)
+
+[node name="Spawn4" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.63286, -0.497202, 0)
+
+[node name="Spawn5" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.33896, -0.497202, 0)
+
+[node name="Spawn6" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.56437, -0.497202, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.342184, 0.939633, 0, -0.939633, 0.342184, 0, 2.65077, 4.41154)
+
+[node name="Grabber" parent="." instance=ExtResource("5_17dnk")]
+transform = Transform3D(1, 0, 0, 0, 0.93358, -0.358368, 0, 0.358368, 0.93358, -19.3148, 1.66432, 0)
+
+[node name="GrabberEndPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89945, 1.25421, 0)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ScorePanel" type="Panel" parent="UI"]
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 182.0
+offset_bottom = 52.0
+
+[node name="ScoreLabel" type="Label" parent="UI/ScorePanel"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Cabbits Caught: 0"
+vertical_alignment = 1
+
+[node name="FailsPanel" type="Panel" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -206.0
+offset_top = 12.0
+offset_right = -15.0
+offset_bottom = 52.0
+grow_horizontal = 0
+
+[node name="FailsLabel" type="Label" parent="UI/FailsPanel"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Red Cabbits Caught: 0"
+vertical_alignment = 1
+
+[node name="StartGamePanel" type="Panel" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -188.0
+offset_right = 166.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChappleFallLabel" type="Label" parent="UI/StartGamePanel"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Cabbit Catcher"
+label_settings = SubResource("LabelSettings_dlene")
+horizontal_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="UI/StartGamePanel"]
+anchors_preset = -1
+anchor_top = 0.187
+anchor_right = 1.0
+anchor_bottom = 0.326
+offset_top = 0.0559998
+offset_bottom = 0.0629959
+grow_horizontal = 2
+grow_vertical = 2
+text = "Welcome to Cabbit Catcher"
+label_settings = SubResource("LabelSettings_v8s7s")
+horizontal_alignment = 1
+
+[node name="DescriptionLabel2" type="Label" parent="UI/StartGamePanel"]
+anchors_preset = -1
+anchor_top = 0.348
+anchor_right = 1.0
+anchor_bottom = 0.487
+offset_left = 10.0
+offset_top = -0.0660095
+offset_right = -10.0
+offset_bottom = -0.0589981
+grow_horizontal = 2
+grow_vertical = 2
+text = "Use space to extend the grabber
+"
+label_settings = SubResource("LabelSettings_v8s7s")
+
+[node name="DescriptionLabel3" type="Label" parent="UI/StartGamePanel"]
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.771
+offset_left = 10.0
+offset_top = -1.38
+offset_right = -9.0
+offset_bottom = 0.0479736
+grow_horizontal = 2
+grow_vertical = 2
+text = "Grab the Orange cabbits while avoiding
+Red Cabbits"
+label_settings = SubResource("LabelSettings_v8s7s")
+
+[node name="StartGameButton" type="Button" parent="UI/StartGamePanel"]
+modulate = Color(0.32549, 1, 0.298039, 1)
+clip_children = 2
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.92
+offset_top = -40.89
+offset_right = 125.92
+offset_bottom = -9.89
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/StartGamePanel/StartGameButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game"
+label_settings = SubResource("LabelSettings_upce0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToHubButton" type="Button" parent="UI/StartGamePanel"]
+modulate = Color(0.180392, 0.411765, 1, 1)
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -133.16
+offset_top = -40.89
+offset_right = -16.16
+offset_bottom = -9.89
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/StartGamePanel/BackToHubButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to Hub"
+label_settings = SubResource("LabelSettings_fhft2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverPanel" type="Panel" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -141.0
+offset_right = 151.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="UI/GameOverPanel"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_dlene")
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="UI/GameOverPanel"]
+anchors_preset = -1
+anchor_left = 0.164
+anchor_top = 0.273
+anchor_right = 0.164
+anchor_bottom = 0.273
+offset_left = -37.864
+offset_top = -15.531
+offset_right = 38.136
+offset_bottom = 15.469
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_v8s7s")
+
+[node name="TryAgainButton" type="Button" parent="UI/GameOverPanel"]
+modulate = Color(0.32549, 1, 0.298039, 1)
+clip_children = 2
+anchors_preset = -1
+anchor_left = 0.221
+anchor_top = 0.644
+anchor_right = 0.221
+anchor_bottom = 0.644
+offset_left = -55.021
+offset_top = -15.428
+offset_right = 54.979
+offset_bottom = 15.572
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/GameOverPanel/TryAgainButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Try Again"
+label_settings = SubResource("LabelSettings_upce0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToHubButton" type="Button" parent="UI/GameOverPanel"]
+modulate = Color(0.180392, 0.411765, 1, 1)
+anchors_preset = -1
+anchor_left = 0.767
+anchor_top = 0.644
+anchor_right = 0.767
+anchor_bottom = 0.644
+offset_left = -58.367
+offset_top = -15.428
+offset_right = 58.633
+offset_bottom = 15.572
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/GameOverPanel/BackToHubButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to Hub"
+label_settings = SubResource("LabelSettings_fhft2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="UI/StartGamePanel/StartGameButton" to="CabbitManager" method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="UI/GameOverPanel/TryAgainButton" to="CabbitManager" method="_on_try_again_button_pressed"]

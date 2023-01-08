@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvjk32i0a5hd5"]
+
+[ext_resource type="PackedScene" uid="uid://dxedt8us3ofg1" path="res://Models/Cabbit Catcher/Grabber Tube.glb" id="1_l7yn1"]
+[ext_resource type="Script" path="res://Scripts/Cabbit Catcher/Grabber.cs" id="1_r8l7a"]
+[ext_resource type="PackedScene" uid="uid://cqetdp2p240v" path="res://Models/Cabbit Catcher/Grabber Arm.glb" id="2_r8fvh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jhouv"]
+size = Vector3(2.05875, 0.333362, 1.559)
+
+[node name="Grabber" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.93358, -0.358368, 0, 0.358368, 0.93358, 0, 0, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_r8l7a")
+
+[node name="Grabber Tube" parent="." instance=ExtResource("1_l7yn1")]
+transform = Transform3D(-1.16055e-08, -2.60127e-10, 2, -0.089592, 0.233395, -3.13294e-08, -0.233395, -0.089592, -8.74228e-08, -12.2764, 0, 0)
+
+[node name="GrabberArmEmpty" parent="." instance=ExtResource("2_r8fvh")]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 2.22045e-16, 0.25, 0, -1.09278e-08, 7.75226, -0.003847, -0.000264287)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -2.38419e-07, 0, 2.38419e-07, 1, 10.0735, 0, 0)
+shape = SubResource("BoxShape3D_jhouv")
+
+[connection signal="body_entered" from="." to="." method="_on_grabber_body_entered"]

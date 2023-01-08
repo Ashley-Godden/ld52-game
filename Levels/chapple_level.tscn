@@ -48,7 +48,7 @@ mesh = SubResource("BoxMesh_nemx7")
 skeleton = NodePath("")
 
 [node name="Player" parent="." node_paths=PackedStringArray("chappleManager") instance=ExtResource("1_urtw0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46449, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.57443, 0)
 chappleManager = NodePath("../ChappleManager")
 
 [node name="Ground" type="RigidBody3D" parent="." groups=["ground"]]
@@ -68,7 +68,7 @@ current = true
 size = 26.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.96792, 0.251259, 0, -0.251259, 0.96792, -6.08722, 6.45557, 11.4355)
+transform = Transform3D(1, 0, 0, 0, 0.889017, 0.457874, 0, -0.457874, 0.889017, -6.08722, 6.45557, 11.4355)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_4fnyv")
@@ -96,7 +96,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StunLabel" type="Label" parent="UI/StunPanel"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -125,7 +124,6 @@ offset_bottom = 73.0
 grow_horizontal = 0
 
 [node name="FailLabel" type="Label" parent="UI/FailPanel"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -149,7 +147,6 @@ offset_right = 237.0
 offset_bottom = 73.0
 
 [node name="ScoreLabel" type="Label" parent="UI/ScorePanel"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -179,7 +176,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ChappleFallLabel" type="Label" parent="UI/StartGamePanel"]
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 26.0
@@ -189,7 +185,6 @@ label_settings = SubResource("LabelSettings_aji4b")
 horizontal_alignment = 1
 
 [node name="DescriptionLabel" type="Label" parent="UI/StartGamePanel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.222
 anchor_right = 1.0
@@ -203,7 +198,6 @@ label_settings = SubResource("LabelSettings_pcel5")
 horizontal_alignment = 1
 
 [node name="DescriptionLabel2" type="Label" parent="UI/StartGamePanel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.382
 anchor_right = 1.0
@@ -219,7 +213,6 @@ text = "Use the A and D keys to move around
 label_settings = SubResource("LabelSettings_pcel5")
 
 [node name="DescriptionLabel3" type="Label" parent="UI/StartGamePanel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.511
 anchor_right = 1.0
@@ -236,7 +229,6 @@ label_settings = SubResource("LabelSettings_pcel5")
 [node name="StartGameButton" type="Button" parent="UI/StartGamePanel"]
 modulate = Color(0.32549, 1, 0.298039, 1)
 clip_children = 2
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.221
 anchor_top = 0.874
@@ -249,7 +241,6 @@ offset_bottom = 15.562
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/StartGamePanel/StartGameButton"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -262,7 +253,6 @@ vertical_alignment = 1
 
 [node name="BackToHubButton" type="Button" parent="UI/StartGamePanel"]
 modulate = Color(0.180392, 0.411765, 1, 1)
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.767
 anchor_top = 0.874
@@ -276,7 +266,6 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/StartGamePanel/BackToHubButton"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -302,7 +291,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameOverLabel" type="Label" parent="UI/GameOverPanel"]
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 26.0
@@ -312,7 +300,6 @@ label_settings = SubResource("LabelSettings_aji4b")
 horizontal_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="UI/GameOverPanel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.164
 anchor_top = 0.273
@@ -328,7 +315,6 @@ label_settings = SubResource("LabelSettings_pcel5")
 [node name="TryAgainButton" type="Button" parent="UI/GameOverPanel"]
 modulate = Color(0.32549, 1, 0.298039, 1)
 clip_children = 2
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.221
 anchor_top = 0.644
@@ -341,7 +327,6 @@ offset_bottom = 15.572
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/GameOverPanel/TryAgainButton"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -354,7 +339,6 @@ vertical_alignment = 1
 
 [node name="BackToHubButton" type="Button" parent="UI/GameOverPanel"]
 modulate = Color(0.180392, 0.411765, 1, 1)
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.767
 anchor_top = 0.644
@@ -368,7 +352,6 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/GameOverPanel/BackToHubButton"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

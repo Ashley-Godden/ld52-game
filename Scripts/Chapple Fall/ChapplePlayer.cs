@@ -26,13 +26,18 @@ public partial class ChapplePlayer : CharacterBody3D
 
     private float stunTimer = 0f;
 
+    private float idleTimer = 2f;
+
     private Panel stunPanel;
+
+    private AnimationPlayer animationPlayer;
 
     public override void _Ready()
     {
         // Called every time the node is added to the scene.
         // Initialization here
         stunPanel = GetNode<Panel>("../UI/StunPanel");
+        animationPlayer = GetNode<AnimationPlayer>("Model/AnimationPlayer");
     }
 
     public override void _Process(double delta)
@@ -74,6 +79,24 @@ public partial class ChapplePlayer : CharacterBody3D
         }
     }
 
+    private void IdleLogic(double delta) 
+    {
+        if (animationPlayer.IsPlaying())
+        {
+            return;
+        }
+
+        if (idleTimer >= 0f)
+        {
+            idleTimer -= (float)delta;
+            return;
+        }
+
+        animationPlayer.PlaybackSpeed = 1.2f;
+        animationPlayer.Play("Idle");
+        idleTimer = 2f;
+    }
+
     private void MovePlayer(double delta)
     {
         // Get horizontal input strength
@@ -81,6 +104,14 @@ public partial class ChapplePlayer : CharacterBody3D
 
         // Get input axis
         Vector3 input = new Vector3(horizontal, 0.0f, 0.0f) * GetNode<Camera3D>("../MainCamera").GlobalTransform.basis;
+
+        if (input.x == 0)
+        {
+            IdleLogic(delta);
+            return;
+        }
+
+        idleTimer = 2f;
 
         // Store local variable for velocity
         Vector3 velocity = Velocity;
@@ -92,6 +123,13 @@ public partial class ChapplePlayer : CharacterBody3D
         Velocity = velocity * moveSpeed * (float)delta;
 
         MoveAndSlide();
+
+        if (!animationPlayer.IsPlaying())
+        {
+            animationPlayer.PlaybackSpeed = 2.5f;
+            // Animate player
+            animationPlayer.Play("Move");
+        }
     }
 
     private void StunPlayer()

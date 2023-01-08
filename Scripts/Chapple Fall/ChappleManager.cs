@@ -80,7 +80,7 @@ public partial class ChappleManager : Node
         if (spawnTimer >= spawnRate)
         {
             // Spawn chapple or twig
-            if (GD.Randf() < 0.8f)
+            if (GD.Randf() < 0.75f)
             {
                 // Spawn chapple
                 SpawnChapple();
@@ -101,6 +101,9 @@ public partial class ChappleManager : Node
 
     public void AddScore(int score)
     {
+        if (this.score == 0 && score <= 0)
+            return;
+
         this.score += score;
         scoreLabel.Text = $"Chapples: {this.score}";
     }

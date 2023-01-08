@@ -1,15 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmy42lk1w5muc"]
+[gd_scene load_steps=6 format=3 uid="uid://bmy42lk1w5muc"]
 
 [ext_resource type="Script" path="res://Scripts/Chapple Fall/ChapplePlayer.cs" id="1_xbs1i"]
 [ext_resource type="PackedScene" uid="uid://bcnn7js4xb6pm" path="res://Models/Chapple Fall/Wicker Basket Full.glb" id="2_ham7w"]
+[ext_resource type="PackedScene" uid="uid://3l6e4rmbj5lr" path="res://Models/Main Character/Main Character.glb" id="2_ol7jj"]
 [ext_resource type="PackedScene" uid="uid://f41oppim13sw" path="res://Models/Chapple Fall/Wicker Basket.glb" id="2_uchn0"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ewnab"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oqexc"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_pwmyf"]
-size = Vector3(1.12726, 0.439104, 1.12718)
+size = Vector3(1.12726, 5.94342, 1.12718)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("basket", "wickerBasketEmpty", "wickerBasketFull")]
 script = ExtResource("1_xbs1i")
@@ -18,14 +15,11 @@ basket = NodePath("Basket")
 wickerBasketEmpty = NodePath("Basket/Wicker Basket Empty")
 wickerBasketFull = NodePath("Basket/Wicker Basket Full")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_ewnab")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_oqexc")
+[node name="Model" parent="." instance=ExtResource("2_ol7jj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Basket" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.118, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18142, 0)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 axis_lock_linear_z = true
@@ -43,7 +37,7 @@ visible = false
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Basket"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742831, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0463, 0)
 shape = SubResource("BoxShape3D_pwmyf")
 
 [connection signal="body_entered" from="Basket" to="." method="_On_Basket_Body_Entered"]
