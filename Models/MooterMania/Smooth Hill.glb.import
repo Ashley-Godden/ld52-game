@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1rowrbsa61cr"
-path="res://.godot/imported/Mootermellon Piece3.glb-9beceffb4c926c7b43680b1114db0882.scn"
+uid="uid://d373i5bw85oo7"
+path="res://.godot/imported/Smooth Hill.glb-1710923781c9b6f0d9f212ff67669184.scn"
 
 [deps]
 
-source_file="res://Models/MooterMainer/Mootermellon Piece3.glb"
-dest_files=["res://.godot/imported/Mootermellon Piece3.glb-9beceffb4c926c7b43680b1114db0882.scn"]
+source_file="res://Models/MooterMania/Smooth Hill.glb"
+dest_files=["res://.godot/imported/Smooth Hill.glb-1710923781c9b6f0d9f212ff67669184.scn"]
 
 [params]
 

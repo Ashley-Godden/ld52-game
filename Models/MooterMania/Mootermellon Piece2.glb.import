@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://14j4axcbaaky"
-path="res://.godot/imported/Mootermellon.glb-798e4f8c5b4e9ee4c9faf8f539c718a8.scn"
+uid="uid://bplloqp75b83v"
+path="res://.godot/imported/Mootermellon Piece2.glb-416cdcc52f07c953269f03ce1799ad5b.scn"
 
 [deps]
 
-source_file="res://Models/MooterMainer/Mootermellon.glb"
-dest_files=["res://.godot/imported/Mootermellon.glb-798e4f8c5b4e9ee4c9faf8f539c718a8.scn"]
+source_file="res://Models/MooterMania/Mootermellon Piece2.glb"
+dest_files=["res://.godot/imported/Mootermellon Piece2.glb-416cdcc52f07c953269f03ce1799ad5b.scn"]
 
 [params]
 
