@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cn1fne5oas2k7"]
+[gd_scene load_steps=5 format=3 uid="uid://cn1fne5oas2k7"]
 
 [ext_resource type="Script" path="res://Scripts/Lobby/MootermelonBin.cs" id="1_dhmbh"]
 [ext_resource type="PackedScene" uid="uid://vwn3d6ub07bt" path="res://Models/Lobby/MooterMelon Bin.glb" id="1_ylc8u"]
+[ext_resource type="AudioStream" uid="uid://b4xdswk203j50" path="res://Sound Effects/click.wav" id="3_jrcff"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_feltt"]
-size = Vector3(2.57761, 2.97337, 3.01311)
+size = Vector3(2.76305, 4.37913, 3.27013)
 
 [node name="Mootermelon Bin" type="StaticBody3D"]
 transform = Transform3D(1, 0, 1.7683e-07, 0, 1, 0, -1.7683e-07, 0, 1, 0, 0, 0)
@@ -14,8 +15,11 @@ script = ExtResource("1_dhmbh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.8147e-06)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220757, 0.507742, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220757, 1.16431, 0)
 shape = SubResource("BoxShape3D_feltt")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jrcff")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

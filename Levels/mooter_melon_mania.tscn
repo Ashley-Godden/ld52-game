@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://ek4k4e5bg4r"]
+[gd_scene load_steps=18 format=3 uid="uid://ek4k4e5bg4r"]
 
 [ext_resource type="PackedScene" uid="uid://c0tq51fp8ae8e" path="res://Prefabs/Mooter Mania/Mania Character.tscn" id="1_rgv6e"]
 [ext_resource type="PackedScene" uid="uid://cs0odv8bbxx76" path="res://Prefabs/Lobby/Fence Mid Full.tscn" id="2_q4qiy"]
 [ext_resource type="PackedScene" uid="uid://c8q227xie8ts2" path="res://Prefabs/Mooter Mania/Mooter Melon.tscn" id="4_2knnm"]
 [ext_resource type="Script" path="res://Scripts/Mooter Mania/MootermaniaManager.cs" id="4_s0d07"]
 [ext_resource type="PackedScene" uid="uid://dbtt1nw74kf1x" path="res://Prefabs/Mooter Mania/Mortar Melon.tscn" id="5_aa5ad"]
+[ext_resource type="AudioStream" uid="uid://dwptmcmd5p10f" path="res://Sound Effects/hit.wav" id="6_lyws8"]
+[ext_resource type="AudioStream" uid="uid://ci33sc58neojj" path="res://Sound Effects/explosion.wav" id="7_agy5d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u22ig"]
 albedo_color = Color(0, 0.494118, 0, 1)
@@ -287,6 +289,12 @@ mesh = SubResource("QuadMesh_710m5")
 script = ExtResource("4_s0d07")
 mootermelonPrefab = ExtResource("4_2knnm")
 mortarmelonPrefab = ExtResource("5_aa5ad")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="MootermaniaManager"]
+stream = ExtResource("6_lyws8")
+
+[node name="ExplodeSound" type="AudioStreamPlayer" parent="MootermaniaManager"]
+stream = ExtResource("7_agy5d")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

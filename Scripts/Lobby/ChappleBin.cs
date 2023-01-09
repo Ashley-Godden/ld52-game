@@ -4,6 +4,7 @@ using System;
 public partial class ChappleBin : StaticBody3D
 {
     private bool mouseEntered = false;
+    private AudioStreamPlayer clickSound;
 
     public void _on_mouse_entered() {
         mouseEntered = true;
@@ -11,6 +12,10 @@ public partial class ChappleBin : StaticBody3D
 
     public void _on_mouse_exited() {
         mouseEntered = false;
+    }
+
+    public override void _Ready() {
+        clickSound = GetNode<AudioStreamPlayer>("ClickSound");
     }
 
     public override void _Process(double delta) {
@@ -25,6 +30,12 @@ public partial class ChappleBin : StaticBody3D
 
             // Check if mouse is pressed then change scene to cabbit catcher
             if (Input.IsActionJustPressed("left_click")) {
+                clickSound.Play();
+
+                // Wait for the sound to finish playing
+                while (clickSound.Playing) {
+                }
+
                 GetTree().ChangeSceneToFile("res://Levels/chapple_level.tscn");
             }
         } else {

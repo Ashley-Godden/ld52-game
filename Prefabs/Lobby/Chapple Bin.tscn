@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b00n235ksrun"]
+[gd_scene load_steps=5 format=3 uid="uid://b00n235ksrun"]
 
 [ext_resource type="PackedScene" uid="uid://buq7q3tnih7f8" path="res://Models/Lobby/Chapple Fall Bin.glb" id="1_kmq6u"]
 [ext_resource type="Script" path="res://Scripts/Lobby/ChappleBin.cs" id="1_rk1v7"]
+[ext_resource type="AudioStream" uid="uid://b4xdswk203j50" path="res://Sound Effects/click.wav" id="3_1inmm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_feltt"]
-size = Vector3(2.57761, 2.97337, 3.01311)
+size = Vector3(2.68777, 4.06941, 3.42771)
 
 [node name="Chapple Bin" type="StaticBody3D"]
 transform = Transform3D(1, 0, 1.7683e-07, 0, 1, 0, -1.7683e-07, 0, 1, 0, 0, 0)
@@ -13,8 +14,11 @@ script = ExtResource("1_rk1v7")
 [node name="Chapple Fall Bin" parent="." instance=ExtResource("1_kmq6u")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220757, 0.507742, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220757, 1.01326, 0)
 shape = SubResource("BoxShape3D_feltt")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1inmm")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmv7qbmxvuqtp"]
+
+[ext_resource type="Script" path="res://Scripts/Effects/RedExplosion.cs" id="1_01nmh"]
+[ext_resource type="PackedScene" uid="uid://b656vnp2v7li2" path="res://Effects/Red Explosion.glb" id="2_a3fq8"]
+
+[node name="GreyExplosion" type="Node3D"]
+script = ExtResource("1_01nmh")
+
+[node name="Model" parent="." instance=ExtResource("2_a3fq8")]

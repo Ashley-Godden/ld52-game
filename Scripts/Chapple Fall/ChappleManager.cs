@@ -11,7 +11,7 @@ using System.IO;
     *
 */
 
-public partial class ChappleManager : Node
+public partial class ChappleManager : Node3D
 {
     // Declare member variables here
     [Export]
@@ -22,6 +22,9 @@ public partial class ChappleManager : Node
 
     [Export]
     private MeshInstance3D spawnArea;
+
+    private AudioStreamPlayer hitSound;
+    private AudioStreamPlayer caughtSound;
     
     private bool spawning = false;
 
@@ -69,6 +72,9 @@ public partial class ChappleManager : Node
         newHighScoreLabel = GetNode<Label>("../UI/NewHighscoreLabel");
 
         chapplePlayer = GetNode<ChapplePlayer>("../Player");
+
+        hitSound = GetNode<AudioStreamPlayer>("HitSound");
+        caughtSound = GetNode<AudioStreamPlayer>("CaughtSound");
 
         // Get half-size of spawn area
         Vector3 halfSize = spawnArea.Scale / 2;
@@ -188,6 +194,8 @@ public partial class ChappleManager : Node
         twigSpawnRate = Mathf.Clamp(2f - (score / 50f), 0.5f, 2f);
 
         scoreLabel.Text = $"Chapples: {this.score}";
+
+        caughtSound.Play();
     }
 
     public void AddFail()
@@ -203,6 +211,8 @@ public partial class ChappleManager : Node
             // Lost game
             LostGame();
         }
+
+        hitSound.Play();
     }
 
     private void SpawnChapple()

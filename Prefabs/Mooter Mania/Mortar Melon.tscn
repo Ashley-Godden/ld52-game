@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://dbtt1nw74kf1x"]
+[gd_scene load_steps=22 format=3 uid="uid://dbtt1nw74kf1x"]
 
 [ext_resource type="Script" path="res://Scripts/Mooter Mania/MortarMelon.cs" id="1_76yjj"]
+[ext_resource type="PackedScene" uid="uid://d1wn3r54dsoo1" path="res://Prefabs/Effects/grey_explosion.tscn" id="2_2085f"]
 [ext_resource type="PackedScene" uid="uid://bvxnruygbb0q8" path="res://Models/MooterMania/Mortarmellon.glb" id="2_sx3t8"]
 [ext_resource type="Script" path="res://Scripts/Mooter Mania/MelonPiece.cs" id="3_rhj7a"]
 [ext_resource type="PackedScene" uid="uid://dcfkqloxgedtx" path="res://Models/MooterMania/Mortarmellon piece1.glb" id="4_xqxqv"]
@@ -42,6 +43,7 @@ radius = 0.723988
 [node name="MortarMelon" type="CharacterBody3D"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("1_76yjj")
+greyExplosionScene = ExtResource("2_2085f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.901112)

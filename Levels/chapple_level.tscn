@@ -1,12 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://bq8ny8ukrjcb7"]
+[gd_scene load_steps=23 format=3 uid="uid://bq8ny8ukrjcb7"]
 
 [ext_resource type="PackedScene" uid="uid://bmy42lk1w5muc" path="res://Prefabs/Chapple Fall/ChapplePlayer.tscn" id="1_urtw0"]
 [ext_resource type="Environment" uid="uid://dpwo2jkg4lb0r" path="res://Environments/Chapple_Env.tres" id="2_4fnyv"]
 [ext_resource type="Script" path="res://Scripts/Chapple Fall/ChappleManager.cs" id="3_w38lm"]
 [ext_resource type="PackedScene" uid="uid://c2wvrdljdv6ob" path="res://Prefabs/Chapple Fall/Chapple.tscn" id="4_qxqik"]
 [ext_resource type="PackedScene" uid="uid://dw4a7c3le7upi" path="res://Prefabs/Chapple Fall/Twig.tscn" id="5_3nv62"]
+[ext_resource type="AudioStream" uid="uid://dwptmcmd5p10f" path="res://Sound Effects/hit.wav" id="6_mlmw4"]
 [ext_resource type="PackedScene" uid="uid://cxtgxck7nlwoh" path="res://Models/Chapple Fall/Chapple Tree.glb" id="6_xj576"]
 [ext_resource type="PackedScene" uid="uid://ba8hu6f6e0ri4" path="res://Models/BackGround Assets/Bush.glb" id="7_axdcy"]
+[ext_resource type="AudioStream" uid="uid://ca0ui2iyrtob7" path="res://Sound Effects/pickupCoin.wav" id="7_g5pxd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nemx7"]
 
@@ -80,11 +82,17 @@ transform = Transform3D(1, 0, 0, 0, 0.889017, 0.457874, 0, -0.457874, 0.889017, 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_4fnyv")
 
-[node name="ChappleManager" type="Node" parent="." node_paths=PackedStringArray("spawnArea")]
+[node name="ChappleManager" type="Node3D" parent="." node_paths=PackedStringArray("spawnArea")]
 script = ExtResource("3_w38lm")
 chapplePrefab = ExtResource("4_qxqik")
 twigPrefab = ExtResource("5_3nv62")
 spawnArea = NodePath("../SpawnArea")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="ChappleManager"]
+stream = ExtResource("6_mlmw4")
+
+[node name="CaughtSound" type="AudioStreamPlayer" parent="ChappleManager"]
+stream = ExtResource("7_g5pxd")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -103,6 +111,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StunLabel" type="Label" parent="UI/StunPanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -131,6 +140,7 @@ offset_bottom = 73.0
 grow_horizontal = 0
 
 [node name="FailLabel" type="Label" parent="UI/FailPanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -154,6 +164,7 @@ offset_right = 237.0
 offset_bottom = 73.0
 
 [node name="ScoreLabel" type="Label" parent="UI/ScorePanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -183,6 +194,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ChappleFallLabel" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 26.0
@@ -192,6 +204,7 @@ label_settings = SubResource("LabelSettings_aji4b")
 horizontal_alignment = 1
 
 [node name="DescriptionLabel" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.222
 anchor_right = 1.0
@@ -205,6 +218,7 @@ label_settings = SubResource("LabelSettings_pcel5")
 horizontal_alignment = 1
 
 [node name="DescriptionLabel2" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.382
 anchor_right = 1.0
@@ -220,6 +234,7 @@ text = "Use the A and D keys to move around
 label_settings = SubResource("LabelSettings_pcel5")
 
 [node name="DescriptionLabel3" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.511
 anchor_right = 1.0
@@ -236,6 +251,7 @@ label_settings = SubResource("LabelSettings_pcel5")
 [node name="StartGameButton" type="Button" parent="UI/StartGamePanel"]
 modulate = Color(0.32549, 1, 0.298039, 1)
 clip_children = 2
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.221
 anchor_top = 0.874
@@ -248,6 +264,7 @@ offset_bottom = 15.562
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/StartGamePanel/StartGameButton"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -260,6 +277,7 @@ vertical_alignment = 1
 
 [node name="BackToHubButton" type="Button" parent="UI/StartGamePanel"]
 modulate = Color(0.180392, 0.411765, 1, 1)
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.767
 anchor_top = 0.874
@@ -273,6 +291,7 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/StartGamePanel/BackToHubButton"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -298,6 +317,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameOverLabel" type="Label" parent="UI/GameOverPanel"]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 26.0
@@ -307,6 +327,7 @@ label_settings = SubResource("LabelSettings_aji4b")
 horizontal_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="UI/GameOverPanel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.164
 anchor_top = 0.273
@@ -322,6 +343,7 @@ label_settings = SubResource("LabelSettings_pcel5")
 [node name="TryAgainButton" type="Button" parent="UI/GameOverPanel"]
 modulate = Color(0.32549, 1, 0.298039, 1)
 clip_children = 2
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.221
 anchor_top = 0.644
@@ -334,6 +356,7 @@ offset_bottom = 15.572
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/GameOverPanel/TryAgainButton"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -346,6 +369,7 @@ vertical_alignment = 1
 
 [node name="BackToHubButton" type="Button" parent="UI/GameOverPanel"]
 modulate = Color(0.180392, 0.411765, 1, 1)
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.767
 anchor_top = 0.644
@@ -359,6 +383,7 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/GameOverPanel/BackToHubButton"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -383,6 +408,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Title" type="Label" parent="UI/HighscorePanel"]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 26.0
@@ -393,6 +419,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="List" type="ItemList" parent="UI/HighscorePanel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.177
 anchor_right = 1.0

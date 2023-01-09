@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://gwjawcir0vbp"]
+[gd_scene load_steps=32 format=3 uid="uid://gwjawcir0vbp"]
 
 [ext_resource type="PackedScene" uid="uid://3l6e4rmbj5lr" path="res://Models/Main Character/Main Character.glb" id="1_3c1tp"]
 [ext_resource type="Script" path="res://Scripts/Cabbit Catcher/CabbitManager.cs" id="1_wyymy"]
@@ -7,11 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://ft7ec248w61a" path="res://Prefabs/Cabbit Catcher/RedCabbit.tscn" id="3_t710x"]
 [ext_resource type="PackedScene" uid="uid://cvjk32i0a5hd5" path="res://Prefabs/Cabbit Catcher/Grabber.tscn" id="5_17dnk"]
 [ext_resource type="Environment" uid="uid://dpwo2jkg4lb0r" path="res://Environments/Chapple_Env.tres" id="6_iamq1"]
+[ext_resource type="PackedScene" uid="uid://cmv7qbmxvuqtp" path="res://Prefabs/Effects/red_explosion.tscn" id="6_teblw"]
 [ext_resource type="PackedScene" uid="uid://5w5d2td6s4na" path="res://Models/Cabbit Catcher/Dirt Pile.glb" id="7_1rclw"]
 [ext_resource type="PackedScene" uid="uid://cbqw3d2bd321c" path="res://Models/Lobby/Barn.glb" id="8_587li"]
 [ext_resource type="PackedScene" uid="uid://du2td3j30thsa" path="res://Models/Lobby/Barn Fence gates Left.glb" id="9_jkroo"]
 [ext_resource type="PackedScene" uid="uid://bba5tpbitmi2q" path="res://Models/Lobby/Barn Fence gates Right.glb" id="10_0l1ff"]
+[ext_resource type="AudioStream" uid="uid://ca0ui2iyrtob7" path="res://Sound Effects/pickupCoin.wav" id="10_3ul4g"]
 [ext_resource type="PackedScene" uid="uid://od36rmfylgvp" path="res://Models/Lobby/Barn Fence Post Mid.glb" id="11_p38j0"]
+[ext_resource type="AudioStream" uid="uid://ci33sc58neojj" path="res://Sound Effects/explosion.wav" id="11_v00ry"]
 [ext_resource type="PackedScene" uid="uid://c4fvulx47clvs" path="res://Models/Lobby/Barn Fence Post End.glb" id="12_glmgm"]
 [ext_resource type="PackedScene" uid="uid://iwv2n267v556" path="res://Models/Lobby/Farm Silo.glb" id="13_0t7m2"]
 [ext_resource type="PackedScene" uid="uid://cbibqxpir8ujw" path="res://Models/Lobby/Farm Grain Bin.glb" id="13_77pd1"]
@@ -63,7 +66,6 @@ offset_right = 182.0
 offset_bottom = 52.0
 
 [node name="ScoreLabel" type="Label" parent="UI/ScorePanel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -85,7 +87,6 @@ offset_bottom = 52.0
 grow_horizontal = 0
 
 [node name="FailsLabel" type="Label" parent="UI/FailsPanel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -110,7 +111,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ChappleFallLabel" type="Label" parent="UI/StartGamePanel"]
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 26.0
@@ -120,7 +120,6 @@ label_settings = SubResource("LabelSettings_dlene")
 horizontal_alignment = 1
 
 [node name="DescriptionLabel" type="Label" parent="UI/StartGamePanel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.187
 anchor_right = 1.0
@@ -134,7 +133,6 @@ label_settings = SubResource("LabelSettings_v8s7s")
 horizontal_alignment = 1
 
 [node name="DescriptionLabel2" type="Label" parent="UI/StartGamePanel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.348
 anchor_right = 1.0
@@ -150,7 +148,6 @@ text = "Use space to extend the grabber
 label_settings = SubResource("LabelSettings_v8s7s")
 
 [node name="DescriptionLabel3" type="Label" parent="UI/StartGamePanel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 1.0
@@ -168,7 +165,6 @@ label_settings = SubResource("LabelSettings_v8s7s")
 [node name="StartGameButton" type="Button" parent="UI/StartGamePanel"]
 modulate = Color(0.32549, 1, 0.298039, 1)
 clip_children = 2
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -179,7 +175,6 @@ offset_bottom = -9.89
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/StartGamePanel/StartGameButton"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -192,7 +187,6 @@ vertical_alignment = 1
 
 [node name="BackToHubButton" type="Button" parent="UI/StartGamePanel"]
 modulate = Color(0.180392, 0.411765, 1, 1)
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
@@ -206,7 +200,6 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/StartGamePanel/BackToHubButton"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -232,7 +225,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameOverLabel" type="Label" parent="UI/GameOverPanel"]
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 26.0
@@ -242,7 +234,6 @@ label_settings = SubResource("LabelSettings_f8ccv")
 horizontal_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="UI/GameOverPanel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.164
 anchor_top = 0.273
@@ -258,7 +249,6 @@ label_settings = SubResource("LabelSettings_pdk51")
 [node name="TryAgainButton" type="Button" parent="UI/GameOverPanel"]
 modulate = Color(0.32549, 1, 0.298039, 1)
 clip_children = 2
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.221
 anchor_top = 0.644
@@ -271,7 +261,6 @@ offset_bottom = 56.572
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/GameOverPanel/TryAgainButton"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -284,7 +273,6 @@ vertical_alignment = 1
 
 [node name="BackToHubButton" type="Button" parent="UI/GameOverPanel"]
 modulate = Color(0.180392, 0.411765, 1, 1)
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.767
 anchor_top = 0.644
@@ -298,7 +286,6 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI/GameOverPanel/BackToHubButton"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -323,7 +310,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Title" type="Label" parent="UI/HighscorePanel"]
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 26.0
@@ -334,7 +320,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="List" type="ItemList" parent="UI/HighscorePanel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.177
 anchor_right = 1.0
@@ -363,10 +348,17 @@ vertical_alignment = 1
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -10.9111, 3.70065, -1.86384)
 script = ExtResource("2_vpurr")
 
-[node name="CabbitManager" type="Node" parent="."]
+[node name="CabbitManager" type="Node3D" parent="."]
 script = ExtResource("1_wyymy")
 cabbitPrefab = ExtResource("2_m5jjx")
 redCabbitPrefab = ExtResource("3_t710x")
+redExplosionPrefab = ExtResource("6_teblw")
+
+[node name="CatchSound" type="AudioStreamPlayer" parent="CabbitManager"]
+stream = ExtResource("10_3ul4g")
+
+[node name="ExplodeSound" type="AudioStreamPlayer" parent="CabbitManager"]
+stream = ExtResource("11_v00ry")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("6_iamq1")
@@ -430,7 +422,7 @@ transform = Transform3D(1, 0, 0, 0, 0.342184, 0.939633, 0, -0.939633, 0.342184, 
 transform = Transform3D(1, 0, 0, 0, 0.93358, -0.358368, 0, 0.358368, 0.93358, -19.3148, 2.55261, 0)
 
 [node name="GrabberEndPosition" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89945, 1.25421, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98028, 1.25421, 0)
 
 [node name="MainCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.341, 9.227, 6.757)

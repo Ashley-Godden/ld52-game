@@ -3,13 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-public partial class CabbitManager : Node
+public partial class CabbitManager : Node3D
 {
     [Export]
     private PackedScene cabbitPrefab;
 
     [Export]
     private PackedScene redCabbitPrefab;
+
+    [Export]
+    private PackedScene redExplosionPrefab;
+    
+    private AudioStreamPlayer explodeSound;
+    private AudioStreamPlayer catchSound;
 
     private float cabbitSpawnRate = 3f;
     private float redCabbitSpawnRate = 4f;
@@ -39,6 +45,8 @@ public partial class CabbitManager : Node
     public override void _Ready()
     {
         Node3D spawnPointsNode = GetNode<Node3D>("../SpawnPoints");
+        explodeSound = GetNode<AudioStreamPlayer>("ExplodeSound");
+        catchSound = GetNode<AudioStreamPlayer>("CatchSound");
 
         spawnPoints = new List<Tuple<Vector3, bool>>();
         
@@ -125,11 +133,17 @@ public partial class CabbitManager : Node
     {
         if (cabbit.GetCabbitType() == Cabbit.CabbitType.Cabbit)
         {
+            catchSound.Play();
             cabbitsCaught++;
             cabbitsCaughtLabel.Text = "Cabbits Caught: " + cabbitsCaught;
         }
         else
         {
+            RedExplosion redExplosion = (RedExplosion)redExplosionPrefab.Instantiate();
+            redExplosion.GlobalTransform = cabbit.GlobalTransform;
+            AddChild(redExplosion);
+
+            explodeSound.Play();
             redCabbitsCaught++;
             redCabbitsCaughtLabel.Text = "Red Cabbits Caught: " + redCabbitsCaught;
 

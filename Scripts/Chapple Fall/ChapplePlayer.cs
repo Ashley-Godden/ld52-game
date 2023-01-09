@@ -137,8 +137,7 @@ public partial class ChapplePlayer : CharacterBody3D
         // Set stunned to true
         stunned = true;
 
-        // Set stun panel to visible
-        stunPanel.Visible = true;
+        animationPlayer.Play("Stunned");
     }
 
     public void _On_Basket_Body_Entered(Node body)
@@ -162,7 +161,7 @@ public partial class ChapplePlayer : CharacterBody3D
             StunPlayer();
 
             // Take away from chapple score
-            chappleManager.AddScore(-1);
+            // chappleManager.AddScore(-1);
 
             // Destroy the twig
             body.QueueFree();

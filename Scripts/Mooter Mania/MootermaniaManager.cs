@@ -13,6 +13,9 @@ public partial class MootermaniaManager : Node3D
     [Export]
     private PackedScene mortarmelonPrefab;
 
+    private AudioStreamPlayer hitSound;
+    private AudioStreamPlayer explodeSound;
+
     private float spawnAreaLeft;
     private float spawnAreaRight;
     private float spawnAreaTop;
@@ -55,6 +58,9 @@ public partial class MootermaniaManager : Node3D
         mootermaniaPlayer = GetNode<ManiaMovement>("../Player");
 
         saveLoc = OS.GetUserDataDir() + "/mootermania_highscores.txt";
+
+        hitSound = GetNode<AudioStreamPlayer>("HitSound");
+        explodeSound = GetNode<AudioStreamPlayer>("ExplodeSound");
 
         LoadData();
 
@@ -99,7 +105,7 @@ public partial class MootermaniaManager : Node3D
         {
             spawnTimer = 0f;
             // Randomise either a mootermelon or a mortarmelon
-            if (GD.RandRange(0, 1) < 0.8f)
+            if (GD.RandRange(0, 1) < 0.9f)
             {
                 SpawnMootermelon();
             }
@@ -145,12 +151,16 @@ public partial class MootermaniaManager : Node3D
     {
         score += amount;
         scoreLabel.Text = $"MooterMelons: {score}";
+
+        hitSound.Play();
     }
 
     public void AddFail()
     {
         fails++;
         failLabel.Text = $"Fails: {fails}/{maxFails}";
+
+        explodeSound.Play();
 
         if (fails >= maxFails)
         {

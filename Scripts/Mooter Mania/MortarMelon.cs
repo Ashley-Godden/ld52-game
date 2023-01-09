@@ -4,10 +4,16 @@ using System.Collections.Generic;
 
 public partial class MortarMelon : CharacterBody3D
 {
+    [Export]
+    private PackedScene greyExplosionScene;
+
     private CollisionShape3D collisionShape;
     private List<RigidBody3D> mortarPieces = new List<RigidBody3D>();
     private Node3D piecesNode;
     private CharacterBody3D player;
+
+    private float deathTimer = 0f;
+    private float deathWaitTime = 20f;
 
     public override void _Ready()
     {
@@ -24,6 +30,12 @@ public partial class MortarMelon : CharacterBody3D
 
     public override void _Process(double delta)
     {
+        if (deathTimer >= deathWaitTime) {
+            Die();
+        } else {
+            deathTimer += (float)delta;
+        }
+
         // Gradually move towards the player
         Vector3 direction = player.GlobalPosition - GlobalPosition;
         direction.y = 0;
@@ -37,6 +49,10 @@ public partial class MortarMelon : CharacterBody3D
     }
 
     public void Die() {
+        GreyExplosion greyExplosion = (GreyExplosion)greyExplosionScene.Instantiate();
+        GetNode<Node3D>("..").AddChild(greyExplosion);
+        greyExplosion.GlobalPosition = GlobalPosition;
+
         piecesNode.Visible = true;
 
         if (mortarPieces.Count != 0) {
