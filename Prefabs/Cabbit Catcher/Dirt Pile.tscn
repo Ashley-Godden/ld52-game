@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxmqocpkx0853"]
+[gd_scene load_steps=5 format=3 uid="uid://bxmqocpkx0853"]
 
 [ext_resource type="PackedScene" uid="uid://5w5d2td6s4na" path="res://Models/Cabbit Catcher/Dirt Pile.glb" id="1_j6vpy"]
+[ext_resource type="PackedScene" uid="uid://br4gltlpc83ij" path="res://Models/Cabbit Catcher/Cabbit.glb" id="2_l2fwf"]
+[ext_resource type="PackedScene" uid="uid://bdqu4hyk6hoqq" path="res://Models/Cabbit Catcher/Red Cabbit.glb" id="3_kvgq3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6w0ql"]
 size = Vector3(7.77266, 1, 1.96806)
@@ -12,3 +14,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21058, 0)
 shape = SubResource("BoxShape3D_6w0ql")
 
 [node name="Dirt Pile" parent="." instance=ExtResource("1_j6vpy")]
+
+[node name="Cabbit" parent="." instance=ExtResource("2_l2fwf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.839241, 0.306437, 0)
+
+[node name="Cabbit2" parent="." instance=ExtResource("2_l2fwf")]
+transform = Transform3D(0.173205, 0, -0.1, 0, 0.2, 0, 0.1, 0, 0.173205, 2.48809, 0.255486, 0)
+
+[node name="Red Cabbit" parent="." instance=ExtResource("3_kvgq3")]
+transform = Transform3D(0.182135, 0, -0.0826241, 0, 0.2, 0, 0.0826241, 0, 0.182135, -2.6967, 0.44494, 0)
+
+[node name="Red Cabbit2" parent="." instance=ExtResource("3_kvgq3")]
+transform = Transform3D(0.121381, 0, 0.158955, 0, 0.2, 0, -0.158955, 0, 0.121381, 1.15515, 0.208135, 0)
