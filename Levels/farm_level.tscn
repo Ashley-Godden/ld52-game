@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bi71xdli3pxvq"]
+[gd_scene load_steps=17 format=3 uid="uid://bi71xdli3pxvq"]
 
 [ext_resource type="PackedScene" uid="uid://d1d6i0dyt17jd" path="res://Models/Lobby/Lobby Floor.glb" id="1_cd1fx"]
 [ext_resource type="PackedScene" uid="uid://dofp82gl0dr6v" path="res://Prefabs/Lobby/Under Construction Tape.tscn" id="3_pdbgh"]
@@ -12,9 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://b00n235ksrun" path="res://Prefabs/Lobby/Chapple Bin.tscn" id="9_71scu"]
 [ext_resource type="PackedScene" uid="uid://rho4foi7ymdr" path="res://Prefabs/Lobby/Cabbit Bin.tscn" id="9_la1v6"]
 [ext_resource type="PackedScene" uid="uid://bq3qw7ji5eckm" path="res://Prefabs/Lobby/Grain Bin.tscn" id="10_035ge"]
+[ext_resource type="PackedScene" uid="uid://bxmqocpkx0853" path="res://Prefabs/Cabbit Catcher/Dirt Pile.tscn" id="10_eww4d"]
 [ext_resource type="PackedScene" uid="uid://dl0k04q4jf7rj" path="res://Prefabs/Lobby/Silo.tscn" id="11_7naeo"]
 [ext_resource type="PackedScene" uid="uid://wxursyq1ivji" path="res://Prefabs/Chapple Fall/Chapple Tree.tscn" id="13_e11k2"]
-[ext_resource type="PackedScene" uid="uid://5w5d2td6s4na" path="res://Models/Cabbit Catcher/Dirt Pile.glb" id="15_gk6v2"]
+[ext_resource type="PackedScene" uid="uid://du3fsmuafbtgr" path="res://Prefabs/Lobby/Main Character.tscn" id="16_6lsw1"]
 
 [node name="FarmLevel" type="Node3D"]
 
@@ -354,41 +355,41 @@ transform = Transform3D(-2.20541e-07, 0, 1, 0, 1, 0, -1, 0, -2.20541e-07, 13.913
 
 [node name="Dirt Piles" type="Node3D" parent="Cabbit Farm"]
 
-[node name="Dirt Pile" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("15_gk6v2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -4)
+[node name="Dirt Pile" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("10_eww4d")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 0, -4)
 
-[node name="Dirt Pile5" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("15_gk6v2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -7)
+[node name="Dirt Pile4" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("10_eww4d")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, 0, -4)
 
-[node name="Dirt Pile6" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("15_gk6v2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -10)
+[node name="Dirt Pile5" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("10_eww4d")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, 0, -7)
 
-[node name="Dirt Pile2" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("15_gk6v2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+[node name="Dirt Pile6" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("10_eww4d")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, 0, -10)
 
-[node name="Dirt Pile3" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("15_gk6v2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -7)
+[node name="Dirt Pile2" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("10_eww4d")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 0, -7)
 
-[node name="Dirt Pile4" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("15_gk6v2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -10)
+[node name="Dirt Pile3" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("10_eww4d")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 0, -10)
 
-[node name="Dirt Pile7" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("15_gk6v2")]
+[node name="Dirt Pile7" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("10_eww4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 9)
 
-[node name="Dirt Pile8" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("15_gk6v2")]
+[node name="Dirt Pile8" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("10_eww4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 9)
+
+[node name="Dirt Pile9" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("10_eww4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 6)
+
+[node name="Dirt Pile10" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("10_eww4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 3)
+
+[node name="Dirt Pile11" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("10_eww4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 6)
 
-[node name="Dirt Pile9" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("15_gk6v2")]
+[node name="Dirt Pile12" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("10_eww4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 3)
-
-[node name="Dirt Pile10" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("15_gk6v2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 9)
-
-[node name="Dirt Pile11" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("15_gk6v2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 6)
-
-[node name="Dirt Pile12" parent="Cabbit Farm/Dirt Piles" instance=ExtResource("15_gk6v2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 3)
 
 [node name="Chapple Farm" type="Node3D" parent="."]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -17, 0, -10.4546)
@@ -584,3 +585,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
 
 [node name="Silo4" parent="Silos3" instance=ExtResource("11_7naeo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="Main Character" parent="." instance=ExtResource("16_6lsw1")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 1.68688, -56.948)

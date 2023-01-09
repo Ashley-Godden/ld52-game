@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://du3fsmuafbtgr"]
+
+[ext_resource type="Script" path="res://Scripts/Lobby/LobbyMovement.cs" id="1_arlfx"]
+[ext_resource type="PackedScene" uid="uid://3l6e4rmbj5lr" path="res://Models/Main Character/Main Character.glb" id="1_fpf6b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rboj3"]
+size = Vector3(1, 4.85657, 1.16762)
+
+[node name="Main Character" type="CharacterBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_arlfx")
+
+[node name="Main Character" parent="." instance=ExtResource("1_fpf6b")]
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1.77883, 0.914196, 0, -0.914196, 1.77883, 0, 7.471, 9.48707)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.691362, 0)
+shape = SubResource("BoxShape3D_rboj3")

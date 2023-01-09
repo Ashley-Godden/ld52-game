@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://wxursyq1ivji"]
+[gd_scene load_steps=4 format=3 uid="uid://wxursyq1ivji"]
 
 [ext_resource type="PackedScene" uid="uid://cxtgxck7nlwoh" path="res://Models/Chapple Fall/Chapple Tree.glb" id="1_mfyqh"]
+[ext_resource type="PackedScene" uid="uid://bpemu87bthfgr" path="res://Models/Chapple Fall/Chapple.glb" id="2_jy27i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e5lqh"]
 size = Vector3(1, 5.79493, 0.947007)
@@ -12,3 +13,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00432, 0)
 shape = SubResource("BoxShape3D_e5lqh")
 
 [node name="Chapple Tree" parent="." instance=ExtResource("1_mfyqh")]
+
+[node name="Chapple" parent="." instance=ExtResource("2_jy27i")]
+transform = Transform3D(0.129904, 0, 0.075, 0, 0.15, 0, -0.075, 0, 0.129904, 1.21752, 3.64584, 0.275734)
+
+[node name="Chapple2" parent="." instance=ExtResource("2_jy27i")]
+transform = Transform3D(-0.106066, 0, -0.106066, 0, 0.15, 0, 0.106066, 0, -0.106066, -0.946858, 2.43926, -0.0199451)
+
+[node name="Chapple3" parent="." instance=ExtResource("2_jy27i")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.946858, 6.27742, -0.0199451)
+
+[node name="Chapple4" parent="." instance=ExtResource("2_jy27i")]
+transform = Transform3D(0.15, 0, 0, 0, 0.123424, 0.0852433, 0, -0.0852433, 0.123424, 0.0110824, 5.44606, -1.27497)
+
+[node name="Chapple5" parent="." instance=ExtResource("2_jy27i")]
+transform = Transform3D(0.100262, -0.0122176, 0.110898, -0.0236977, 0.143364, 0.0372193, -0.109023, -0.042398, 0.0938957, -1.03892, 5.44606, -1.02528)
+
+[node name="Chapple6" parent="." instance=ExtResource("2_jy27i")]
+transform = Transform3D(-0.146171, -0.0308284, 0.0135501, -0.020384, 0.129044, 0.0737026, -0.0268046, 0.0699799, -0.12994, -0.660462, 5.36623, 1.12913)
+
+[node name="Chapple7" parent="." instance=ExtResource("2_jy27i")]
+transform = Transform3D(-0.146171, -0.033285, 0.00510936, -0.020384, 0.105572, 0.10459, -0.0268046, 0.101226, -0.1074, 0.869, 5.93858, 0.747475)
