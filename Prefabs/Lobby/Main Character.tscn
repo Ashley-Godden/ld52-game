@@ -10,10 +10,10 @@ size = Vector3(1, 4.85657, 1.16762)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_arlfx")
 
-[node name="Main Character" parent="." instance=ExtResource("1_fpf6b")]
+[node name="Model" parent="." instance=ExtResource("1_fpf6b")]
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1.77883, 0.914196, 0, -0.914196, 1.77883, 0, 7.471, 9.48707)
+transform = Transform3D(2, 0, 0, 0, 1.77883, 0.914197, 0, -0.914197, 1.77883, 0, 9.18936, 12.8306)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.691362, 0)

@@ -290,4 +290,9 @@ public partial class CabbitManager : Node
         gameOverPanel.Visible = false;
         GetTree().ReloadCurrentScene();
     }
+
+    public void _on_back_to_hub_button_pressed()
+    {
+        GetTree().ChangeSceneToFile("res://Levels/farm_level.tscn");
+    }
 }

@@ -597,4 +597,6 @@ transform = Transform3D(0.895867, 0, -0.444322, -4.17233e-07, 1, 0, 0.444323, 0,
 transform = Transform3D(0.949967, 0, 0.312351, -4.17233e-07, 1, 6.70552e-08, -0.312351, 0, 0.949966, -1.77588, -0.81118, 63.8276)
 
 [connection signal="pressed" from="UI/StartGamePanel/StartGameButton" to="CabbitManager" method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="UI/StartGamePanel/BackToHubButton" to="CabbitManager" method="_on_back_to_hub_button_pressed"]
 [connection signal="pressed" from="UI/GameOverPanel/TryAgainButton" to="CabbitManager" method="_on_try_again_button_pressed"]
+[connection signal="pressed" from="UI/GameOverPanel/BackToHubButton" to="CabbitManager" method="_on_back_to_hub_button_pressed"]

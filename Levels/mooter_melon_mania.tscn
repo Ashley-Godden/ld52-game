@@ -1,0 +1,614 @@
+[gd_scene load_steps=16 format=3 uid="uid://ek4k4e5bg4r"]
+
+[ext_resource type="PackedScene" uid="uid://c0tq51fp8ae8e" path="res://Prefabs/Mooter Mania/Mania Character.tscn" id="1_rgv6e"]
+[ext_resource type="PackedScene" uid="uid://cs0odv8bbxx76" path="res://Prefabs/Lobby/Fence Mid Full.tscn" id="2_q4qiy"]
+[ext_resource type="PackedScene" uid="uid://c8q227xie8ts2" path="res://Prefabs/Mooter Mania/Mooter Melon.tscn" id="4_2knnm"]
+[ext_resource type="Script" path="res://Scripts/Mooter Mania/MootermaniaManager.cs" id="4_s0d07"]
+[ext_resource type="PackedScene" uid="uid://dbtt1nw74kf1x" path="res://Prefabs/Mooter Mania/Mortar Melon.tscn" id="5_aa5ad"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u22ig"]
+albedo_color = Color(0, 0.494118, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vl77k"]
+material = SubResource("StandardMaterial3D_u22ig")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wv7gq"]
+size = Vector3(140.509, 1, 110.505)
+
+[sub_resource type="QuadMesh" id="QuadMesh_710m5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gkfkp"]
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ohb7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3f7tb"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_xrvvg"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1x0k"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_3rqun"]
+font_size = 32
+
+[node name="MooterMelon Mania" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1.9, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(139.645, 0, 0, 0, 0.2, 0, 0, 0, 108.841, 0, 0, 0)
+mesh = SubResource("BoxMesh_vl77k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_wv7gq")
+
+[node name="Player" parent="." instance=ExtResource("1_rgv6e")]
+transform = Transform3D(-0.6, 0, -9.05975e-08, 0, 0.6, 0, 9.05975e-08, 0, -0.6, 2.5062, 2.07589, 3.60012)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00795868, 0.999968, 0, -0.999968, -0.00795868, 0, 53.8155, 0)
+
+[node name="Fences" type="Node3D" parent="."]
+
+[node name="Fence Mid Full" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Fence Mid Full2" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+
+[node name="Fence Mid Full3" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
+
+[node name="Fence Mid Full4" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 0)
+
+[node name="Fence Mid Full5" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1, 0)
+
+[node name="Fence Mid Full6" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1, 0)
+
+[node name="Fence Mid Full7" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 1, 0)
+
+[node name="Fence Mid Full8" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 1, 0)
+
+[node name="Fence Mid Full9" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 1, 0)
+
+[node name="Fence Mid Full10" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 1, 0)
+
+[node name="Fence Mid Full11" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1, 0)
+
+[node name="Fence Mid Full12" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 3)
+
+[node name="Fence Mid Full13" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 6)
+
+[node name="Fence Mid Full14" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 9)
+
+[node name="Fence Mid Full15" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 12)
+
+[node name="Fence Mid Full16" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 15)
+
+[node name="Fence Mid Full17" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 18)
+
+[node name="Fence Mid Full18" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 21)
+
+[node name="Fence Mid Full19" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 24)
+
+[node name="Fence Mid Full20" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 27)
+
+[node name="Fence Mid Full21" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 30)
+
+[node name="Fence Mid Full22" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 33)
+
+[node name="Fence Mid Full23" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 36)
+
+[node name="Fence Mid Full24" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 39)
+
+[node name="Fence Mid Full25" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 42)
+
+[node name="Fence Mid Full26" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 45)
+
+[node name="Fence Mid Full27" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 48)
+
+[node name="Fence Mid Full28" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 1, 51)
+
+[node name="Fence Mid Full29" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -27, 1, 51)
+
+[node name="Fence Mid Full30" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -24, 1, 51)
+
+[node name="Fence Mid Full31" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -21, 1, 51)
+
+[node name="Fence Mid Full32" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -18, 1, 51)
+
+[node name="Fence Mid Full33" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -15, 1, 51)
+
+[node name="Fence Mid Full34" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -12, 1, 51)
+
+[node name="Fence Mid Full35" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -9, 1, 51)
+
+[node name="Fence Mid Full36" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -6, 1, 51)
+
+[node name="Fence Mid Full37" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -3, 1, 51)
+
+[node name="Fence Mid Full38" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 1, 51)
+
+[node name="Fence Mid Full39" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 3, 1, 51)
+
+[node name="Fence Mid Full40" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 6, 1, 51)
+
+[node name="Fence Mid Full41" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 9, 1, 51)
+
+[node name="Fence Mid Full42" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 12, 1, 51)
+
+[node name="Fence Mid Full43" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 15, 1, 51)
+
+[node name="Fence Mid Full44" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 18, 1, 51)
+
+[node name="Fence Mid Full45" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 21, 1, 51)
+
+[node name="Fence Mid Full46" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 24, 1, 51)
+
+[node name="Fence Mid Full47" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 27, 1, 51)
+
+[node name="Fence Mid Full48" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 30, 1, 51)
+
+[node name="Fence Mid Full49" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 51)
+
+[node name="Fence Mid Full50" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 48)
+
+[node name="Fence Mid Full51" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 45)
+
+[node name="Fence Mid Full52" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 42)
+
+[node name="Fence Mid Full53" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 39)
+
+[node name="Fence Mid Full54" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 36)
+
+[node name="Fence Mid Full55" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 33)
+
+[node name="Fence Mid Full56" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 30)
+
+[node name="Fence Mid Full57" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 27)
+
+[node name="Fence Mid Full58" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 24)
+
+[node name="Fence Mid Full59" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 21)
+
+[node name="Fence Mid Full60" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 18)
+
+[node name="Fence Mid Full61" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 15)
+
+[node name="Fence Mid Full62" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 12)
+
+[node name="Fence Mid Full63" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 9)
+
+[node name="Fence Mid Full64" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 6)
+
+[node name="Fence Mid Full65" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 30, 1, 3)
+
+[node name="Fence Mid Full66" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, -1, 30, 1, 0)
+
+[node name="Fence Mid Full67" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, -1, 27, 1, 0)
+
+[node name="Fence Mid Full68" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, -1, 24, 1, 0)
+
+[node name="Fence Mid Full69" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, -1, 21, 1, 0)
+
+[node name="Fence Mid Full70" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, -1, 18, 1, 0)
+
+[node name="Fence Mid Full71" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, -1, 15, 1, 0)
+
+[node name="Fence Mid Full72" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, -1, 12, 1, 0)
+
+[node name="Fence Mid Full73" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, -1, 9, 1, 0)
+
+[node name="Fence Mid Full74" parent="Fences" instance=ExtResource("2_q4qiy")]
+transform = Transform3D(-1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, -1, 6, 1, 0)
+
+[node name="Misc" type="Node3D" parent="."]
+
+[node name="SpawnArea" type="MeshInstance3D" parent="."]
+transform = Transform3D(55.2519, 0, 0, 0, -2.02525e-06, 1, 0, -46.3322, -4.37114e-08, -0.0895696, 0.305235, 25.4236)
+visible = false
+mesh = SubResource("QuadMesh_710m5")
+
+[node name="MootermaniaManager" type="Node3D" parent="."]
+script = ExtResource("4_s0d07")
+mootermelonPrefab = ExtResource("4_2knnm")
+mortarmelonPrefab = ExtResource("5_aa5ad")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="FailPanel" type="Panel" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 15.0
+offset_right = -22.0
+offset_bottom = 73.0
+grow_horizontal = 0
+
+[node name="FailLabel" type="Label" parent="UI/FailPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -13.0
+offset_right = 45.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fails: 0/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ScorePanel" type="Panel" parent="UI"]
+offset_left = 22.0
+offset_top = 15.0
+offset_right = 237.0
+offset_bottom = 73.0
+
+[node name="ScoreLabel" type="Label" parent="UI/ScorePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -12.5
+offset_right = 96.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "MooterMelons: 0"
+vertical_alignment = 1
+uppercase = true
+
+[node name="StartGamePanel" type="Panel" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -188.0
+offset_right = 166.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MootermelonLabel" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Mooter Mania"
+label_settings = SubResource("LabelSettings_gkfkp")
+horizontal_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.222
+anchor_right = 1.0
+anchor_bottom = 0.361
+offset_top = -0.0140038
+offset_bottom = -0.00700378
+grow_horizontal = 2
+grow_vertical = 2
+text = "Welcome to Mooter Mania"
+label_settings = SubResource("LabelSettings_0ohb7")
+horizontal_alignment = 1
+
+[node name="DescriptionLabel2" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.382
+anchor_right = 1.0
+anchor_bottom = 0.521
+offset_left = 10.0
+offset_top = 0.0659943
+offset_right = -10.0
+offset_bottom = 0.072998
+grow_horizontal = 2
+grow_vertical = 2
+text = "Use W/A/S/D keys to move around
+"
+label_settings = SubResource("LabelSettings_0ohb7")
+horizontal_alignment = 1
+
+[node name="DescriptionLabel3" type="Label" parent="UI/StartGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.508
+anchor_right = 1.0
+anchor_bottom = 0.786
+offset_left = 9.0
+offset_top = 0.0039978
+offset_right = -6.0
+offset_bottom = 0.0179901
+grow_horizontal = 2
+grow_vertical = 2
+text = "Smash Mootermelons
+Avoid Mortarmelons"
+label_settings = SubResource("LabelSettings_0ohb7")
+horizontal_alignment = 1
+
+[node name="StartGameButton" type="Button" parent="UI/StartGamePanel"]
+modulate = Color(0.32549, 1, 0.298039, 1)
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.221
+anchor_top = 0.874
+anchor_right = 0.221
+anchor_bottom = 0.874
+offset_left = -55.021
+offset_top = -15.438
+offset_right = 54.979
+offset_bottom = 15.562
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/StartGamePanel/StartGameButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game"
+label_settings = SubResource("LabelSettings_3f7tb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToHubButton" type="Button" parent="UI/StartGamePanel"]
+modulate = Color(0.180392, 0.411765, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.767
+anchor_top = 0.874
+anchor_right = 0.767
+anchor_bottom = 0.874
+offset_left = -58.367
+offset_top = -15.438
+offset_right = 58.633
+offset_bottom = 15.562
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/StartGamePanel/BackToHubButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to Hub"
+label_settings = SubResource("LabelSettings_xrvvg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverPanel" type="Panel" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -141.0
+offset_right = 151.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="UI/GameOverPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_gkfkp")
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="UI/GameOverPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.164
+anchor_top = 0.273
+anchor_right = 0.164
+anchor_bottom = 0.273
+offset_left = -37.864
+offset_top = -15.531
+offset_right = 38.136
+offset_bottom = 15.469
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_0ohb7")
+
+[node name="TryAgainButton" type="Button" parent="UI/GameOverPanel"]
+modulate = Color(0.32549, 1, 0.298039, 1)
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.221
+anchor_top = 0.644
+anchor_right = 0.221
+anchor_bottom = 0.644
+offset_left = -55.021
+offset_top = -15.428
+offset_right = 54.979
+offset_bottom = 15.572
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/GameOverPanel/TryAgainButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Try Again"
+label_settings = SubResource("LabelSettings_3f7tb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToHubButton" type="Button" parent="UI/GameOverPanel"]
+modulate = Color(0.180392, 0.411765, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.767
+anchor_top = 0.644
+anchor_right = 0.767
+anchor_bottom = 0.644
+offset_left = -58.367
+offset_top = -15.428
+offset_right = 58.633
+offset_bottom = 15.572
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/GameOverPanel/BackToHubButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to Hub"
+label_settings = SubResource("LabelSettings_xrvvg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighscorePanel" type="Panel" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.5
+offset_top = -286.0
+offset_right = 205.5
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Title" type="Label" parent="UI/HighscorePanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Highscores"
+label_settings = SubResource("LabelSettings_c1x0k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="List" type="ItemList" parent="UI/HighscorePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.177
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0950012
+grow_horizontal = 2
+grow_vertical = 0
+same_column_width = true
+
+[node name="NewHighscoreLabel" type="Label" parent="UI"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -145.0
+offset_top = 19.0
+offset_right = 145.0
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "NEW HIGHSCORE!!!"
+label_settings = SubResource("LabelSettings_3rqun")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="UI/StartGamePanel/StartGameButton" to="MootermaniaManager" method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="UI/StartGamePanel/BackToHubButton" to="MootermaniaManager" method="_on_back_to_hub_button_pressed"]
+[connection signal="pressed" from="UI/GameOverPanel/TryAgainButton" to="MootermaniaManager" method="_on_try_again_button_pressed"]
+[connection signal="pressed" from="UI/GameOverPanel/BackToHubButton" to="MootermaniaManager" method="_on_back_to_hub_button_pressed"]

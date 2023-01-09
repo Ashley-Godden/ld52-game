@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0tq51fp8ae8e"]
+
+[ext_resource type="Script" path="res://Scripts/Mooter Mania/ManiaMovement.cs" id="1_ldw05"]
+[ext_resource type="PackedScene" uid="uid://3l6e4rmbj5lr" path="res://Models/Main Character/Main Character.glb" id="2_kmca1"]
+[ext_resource type="PackedScene" uid="uid://ckg3tnd8cefhx" path="res://Models/MooterMania/Hammer.glb" id="3_1ryi7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_es73d"]
+size = Vector3(1.54478, 4.3448, 5.95887)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rboj3"]
+size = Vector3(1, 4.85657, 1.16762)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iwklb"]
+size = Vector3(1.94613, 5.00456, 1.95132)
+
+[node name="Main Character" type="CharacterBody3D"]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+script = ExtResource("1_ldw05")
+
+[node name="Model" parent="." instance=ExtResource("2_kmca1")]
+
+[node name="HitArea" type="Area3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5311e-07, -1.28817, -1.75137)
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/HitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34747e-07, 0.36413, -1.78284)
+shape = SubResource("BoxShape3D_es73d")
+
+[node name="Hammer" parent="Model" instance=ExtResource("3_1ryi7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.93535e-07, 0.27978, -2.21378)
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1.28558, 1.53209, 0, -1.53209, 1.28558, 0, 23.4587, 13.7711)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.691362, 0)
+shape = SubResource("BoxShape3D_rboj3")
+
+[node name="MortarArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MortarArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0371494, -0.761774, -0.0607545)
+shape = SubResource("BoxShape3D_iwklb")
+
+[connection signal="body_entered" from="Model/HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="body_entered" from="MortarArea" to="." method="_on_mortar_area_body_entered"]

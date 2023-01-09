@@ -1,15 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://rho4foi7ymdr"]
+[gd_scene load_steps=4 format=3 uid="uid://cvl6hy8omycsy"]
 
+[ext_resource type="Script" path="res://Scripts/Lobby/CabbitBin.cs" id="1_iegt4"]
 [ext_resource type="PackedScene" uid="uid://nj5msju4j4ca" path="res://Models/Lobby/Cabbit Catcher Bin.glb" id="1_v78ux"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_feltt"]
 size = Vector3(2.57761, 2.97337, 3.01311)
 
-[node name="Chapple Bin" type="StaticBody3D"]
+[node name="Cabbit Bin" type="StaticBody3D"]
 transform = Transform3D(1, 0, 1.7683e-07, 0, 1, 0, -1.7683e-07, 0, 1, 0, 0, 0)
+script = ExtResource("1_iegt4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220757, 0.507742, 0)
 shape = SubResource("BoxShape3D_feltt")
 
 [node name="Cabbit Catcher Bin" parent="." instance=ExtResource("1_v78ux")]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

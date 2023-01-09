@@ -1,0 +1,141 @@
+[gd_scene load_steps=21 format=3 uid="uid://dbtt1nw74kf1x"]
+
+[ext_resource type="Script" path="res://Scripts/Mooter Mania/MortarMelon.cs" id="1_76yjj"]
+[ext_resource type="PackedScene" uid="uid://bvxnruygbb0q8" path="res://Models/MooterMania/Mortarmellon.glb" id="2_sx3t8"]
+[ext_resource type="Script" path="res://Scripts/Mooter Mania/MelonPiece.cs" id="3_rhj7a"]
+[ext_resource type="PackedScene" uid="uid://dcfkqloxgedtx" path="res://Models/MooterMania/Mortarmellon piece1.glb" id="4_xqxqv"]
+[ext_resource type="PackedScene" uid="uid://prvrvveuycix" path="res://Models/MooterMania/Mortarmellon piece2.glb" id="5_pqbn5"]
+[ext_resource type="PackedScene" uid="uid://cc2l2mff8lpt" path="res://Models/MooterMania/Mortarmellon piece3.glb" id="6_g5ilj"]
+[ext_resource type="PackedScene" uid="uid://be3wqdk5dnuws" path="res://Models/MooterMania/Mortarmellon piece4.glb" id="7_iiibt"]
+[ext_resource type="PackedScene" uid="uid://b6vc6eihsp65k" path="res://Models/MooterMania/Mortarmellon piece5.glb" id="8_j4jcm"]
+[ext_resource type="PackedScene" uid="uid://dv3upcankcase" path="res://Models/MooterMania/Mortarmellon piece6.glb" id="9_43m00"]
+[ext_resource type="PackedScene" uid="uid://c4ir4jicl314t" path="res://Models/MooterMania/Mortarmellon piece7.glb" id="10_8jqxt"]
+[ext_resource type="PackedScene" uid="uid://cs648lfmt4r6e" path="res://Models/MooterMania/Mortarmellon piece8.glb" id="11_d720f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nsl64"]
+size = Vector3(2.07069, 1.65443, 5.21325)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p8gj8"]
+radius = 0.688515
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u3mtk"]
+radius = 0.641808
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l0bfb"]
+radius = 1.07288
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kuj52"]
+radius = 0.842579
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lch3s"]
+radius = 1.05005
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_aydmo"]
+radius = 0.621996
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6u0n1"]
+radius = 0.634836
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ffpg5"]
+radius = 0.723988
+
+[node name="MortarMelon" type="CharacterBody3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+script = ExtResource("1_76yjj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.901112)
+shape = SubResource("BoxShape3D_nsl64")
+
+[node name="Mortarmellon" parent="." instance=ExtResource("2_sx3t8")]
+
+[node name="Pieces" type="Node3D" parent="."]
+visible = false
+
+[node name="Piece" type="RigidBody3D" parent="Pieces"]
+freeze = true
+script = ExtResource("3_rhj7a")
+
+[node name="Mortarmellon piece1" parent="Pieces/Piece" instance=ExtResource("4_xqxqv")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pieces/Piece"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.330489, 0.350474, 0.765306)
+shape = SubResource("SphereShape3D_p8gj8")
+disabled = true
+
+[node name="Piece2" type="RigidBody3D" parent="Pieces"]
+freeze = true
+script = ExtResource("3_rhj7a")
+
+[node name="Mortarmellon piece2" parent="Pieces/Piece2" instance=ExtResource("5_pqbn5")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pieces/Piece2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.476484, 0.082871, 0.850603)
+shape = SubResource("SphereShape3D_u3mtk")
+disabled = true
+
+[node name="Piece3" type="RigidBody3D" parent="Pieces"]
+freeze = true
+script = ExtResource("3_rhj7a")
+
+[node name="Mortarmellon piece3" parent="Pieces/Piece3" instance=ExtResource("6_g5ilj")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pieces/Piece3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.320376, -0.227306, -0.290796)
+shape = SubResource("SphereShape3D_l0bfb")
+disabled = true
+
+[node name="Piece4" type="RigidBody3D" parent="Pieces"]
+freeze = true
+script = ExtResource("3_rhj7a")
+
+[node name="Mortarmellon piece4" parent="Pieces/Piece4" instance=ExtResource("7_iiibt")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pieces/Piece4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.443469, -0.281776, 0)
+shape = SubResource("SphereShape3D_kuj52")
+disabled = true
+
+[node name="Piece5" type="RigidBody3D" parent="Pieces"]
+freeze = true
+script = ExtResource("3_rhj7a")
+
+[node name="Mortarmellon piece5" parent="Pieces/Piece5" instance=ExtResource("8_j4jcm")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pieces/Piece5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196442, 0.0953689, -0.488428)
+shape = SubResource("SphereShape3D_lch3s")
+disabled = true
+
+[node name="Piece6" type="RigidBody3D" parent="Pieces"]
+freeze = true
+script = ExtResource("3_rhj7a")
+
+[node name="Mortarmellon piece6" parent="Pieces/Piece6" instance=ExtResource("9_43m00")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pieces/Piece6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220153, -0.197386, 0.819899)
+shape = SubResource("SphereShape3D_aydmo")
+disabled = true
+
+[node name="Piece7" type="RigidBody3D" parent="Pieces"]
+freeze = true
+script = ExtResource("3_rhj7a")
+
+[node name="Mortarmellon piece7" parent="Pieces/Piece7" instance=ExtResource("10_8jqxt")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pieces/Piece7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.226798, 0.460067, 0.789425)
+shape = SubResource("SphereShape3D_6u0n1")
+disabled = true
+
+[node name="Piece8" type="RigidBody3D" parent="Pieces"]
+freeze = true
+script = ExtResource("3_rhj7a")
+
+[node name="Mortarmellon piece8" parent="Pieces/Piece8" instance=ExtResource("11_d720f")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pieces/Piece8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.435566, 0.71254)
+shape = SubResource("SphereShape3D_ffpg5")
+disabled = true

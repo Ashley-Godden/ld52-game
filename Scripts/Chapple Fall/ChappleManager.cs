@@ -297,4 +297,9 @@ public partial class ChappleManager : Node
         // Set spawning to true
         spawning = true;
     }
+
+    public void _on_back_to_hub_button_pressed()
+    {
+        GetTree().ChangeSceneToFile("res://Levels/farm_level.tscn");
+    }
 }
