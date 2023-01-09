@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b00n235ksrun"]
+
+[ext_resource type="PackedScene" uid="uid://buq7q3tnih7f8" path="res://Models/Lobby/Chapple Fall Bin.glb" id="1_kmq6u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_feltt"]
+size = Vector3(2.57761, 2.97337, 3.01311)
+
+[node name="Chapple Bin" type="StaticBody3D"]
+transform = Transform3D(1, 0, 1.7683e-07, 0, 1, 0, -1.7683e-07, 0, 1, 0, 0, 0)
+
+[node name="Chapple Fall Bin" parent="." instance=ExtResource("1_kmq6u")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220757, 0.507742, 0)
+shape = SubResource("BoxShape3D_feltt")

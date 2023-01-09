@@ -1,12 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://bir36xal0rjtb"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="PackedScene" uid="uid://cqetdp2p240v" path="res://Models/Cabbit Catcher/Grabber Arm.glb" id="1_ynbxu"]
-[ext_resource type="PackedScene" uid="uid://baiyitd0m4gqo" path="res://Models/Cabbit Catcher/Grabber_Cabbit.glb" id="2_8fb15"]
+[ext_resource type="ArrayMesh" uid="uid://canonhoxst5kn" path="res://Models/MooterManer/very bumby hill mesh.res" id="1_qw3gk"]
+[ext_resource type="PackedScene" uid="uid://ol0s3kxh4omk" path="res://Prefabs/Mooter Mania/Mootermelon.tscn" id="2_2dviu"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0dtda"]
+points = PackedVector3Array(-0.959359, 0, -0.959359, -0.959359, 0, 0.963158, 1.0197, 0.0159281, -1.0159, 1.0197, 0.0159281, 1.0197, -0.171488, 0.443861, 0.435643, -0.371128, 0.52862, -0.256254, 0.319914, 0.365736, 0.383476, -1.0159, 0.0159281, 1.0197, -1.0159, 0.0159281, -1.0159, 0.963158, 0, -0.959359, -0.462141, 0.502352, -0.230121, -0.257065, 0.471763, -0.400974, 0.963158, 5.55112e-17, 0.963158, -0.0510371, 0.482247, -0.183463, -0.399226, 0.470889, 0.231192, 0.987822, 0.0478154, 0.288033, 0.38723, 0.321734, -0.306332, -0.221999, 0.494231, 0.253676, -0.345217, 0.386028, 0.522666, 0.415358, 0.302073, 0.606046, 0.415358, 0.0478154, -0.984022, -0.314617, 0.529452, -0.285942, 0.987822, 0.0478154, -0.316114, -0.130922, 0.482881, 0.240912, -0.214293, 0.513572, -0.268299, -0.584171, 0.387523, -0.46703, -0.197664, 0.46989, 0.37262, -0.281942, 0.46898, 0.342475, 0.0286341, 0.45814, -0.132275, -0.18324, 0.508471, -0.130366, -0.313868, 0.500095, -0.342656, 0.365929, 0.322371, -0.36213)
 
 [node name="Harry_Debug" type="Node3D"]
 
-[node name="Grabber Arm" parent="." instance=ExtResource("1_ynbxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1321, 0, 2.66283)
+[node name="StaticBody3D" type="AnimatableBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="Grabber_Cabbit" parent="." instance=ExtResource("2_8fb15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0274954, -2.38419e-07, 1.94895)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+mesh = ExtResource("1_qw3gk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_0dtda")
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.37502, 32.3954)
+
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.01619, 0)
+
+[node name="MooterMelon" parent="." instance=ExtResource("2_2dviu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 14.2635, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.857374, 0.514694, 0, -0.514694, 0.857374, 0, 17.5789, 0)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq3qw7ji5eckm"]
+
+[ext_resource type="PackedScene" uid="uid://cbibqxpir8ujw" path="res://Models/Lobby/Farm Grain Bin.glb" id="1_tgu51"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l7awl"]
+size = Vector3(8.13222, 7.24457, 8.07507)
+
+[node name="Grain Bin" type="StaticBody3D"]
+
+[node name="Farm Grain Bin" parent="." instance=ExtResource("1_tgu51")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6487, 0)
+shape = SubResource("BoxShape3D_l7awl")

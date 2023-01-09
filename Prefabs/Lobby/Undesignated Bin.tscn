@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm4ej6a6sqe4d"]
+
+[ext_resource type="PackedScene" uid="uid://cdwboh4dlupt4" path="res://Models/Lobby/Undesignated Bin.glb" id="1_44018"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_feltt"]
+size = Vector3(2.57761, 2.97337, 3.01311)
+
+[node name="Undesignated Bin" type="StaticBody3D"]
+transform = Transform3D(1, 0, 1.7683e-07, 0, 1, 0, -1.7683e-07, 0, 1, 0, 0, 0)
+
+[node name="Undesignated Bin" parent="." instance=ExtResource("1_44018")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.8147e-06)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220757, 0.507742, 0)
+shape = SubResource("BoxShape3D_feltt")

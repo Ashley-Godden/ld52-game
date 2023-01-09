@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wxursyq1ivji"]
+
+[ext_resource type="PackedScene" uid="uid://cxtgxck7nlwoh" path="res://Models/Chapple Fall/Chapple Tree.glb" id="1_mfyqh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5lqh"]
+size = Vector3(1, 5.79493, 0.947007)
+
+[node name="Chapple Tree" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00432, 0)
+shape = SubResource("BoxShape3D_e5lqh")
+
+[node name="Chapple Tree" parent="." instance=ExtResource("1_mfyqh")]

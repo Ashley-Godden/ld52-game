@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg2umgl6myeed"]
+
+[ext_resource type="PackedScene" uid="uid://cp54d7pfvadrt" path="res://Models/Lobby/Pig Hut.glb" id="1_bqdii"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nssky"]
+size = Vector3(5.81861, 3.38291, 5.81028)
+
+[node name="Pig Hut" type="StaticBody3D"]
+
+[node name="Pig Hut" parent="." instance=ExtResource("1_bqdii")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79501, 0)
+shape = SubResource("BoxShape3D_nssky")

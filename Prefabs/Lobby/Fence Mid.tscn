@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://me3cb2ellkoi"]
+
+[ext_resource type="PackedScene" uid="uid://od36rmfylgvp" path="res://Models/Lobby/Barn Fence Post Mid.glb" id="1_xraml"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3vv0"]
+size = Vector3(0.47835, 1.95654, 2.95973)
+
+[node name="Fence Mid" type="StaticBody3D"]
+
+[node name="Barn Fence Post Mid4" parent="." instance=ExtResource("1_xraml")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.48832)
+shape = SubResource("BoxShape3D_x3vv0")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl0k04q4jf7rj"]
+
+[ext_resource type="PackedScene" uid="uid://iwv2n267v556" path="res://Models/Lobby/Farm Silo.glb" id="1_gbatx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qsos7"]
+size = Vector3(4.03097, 15.8584, 4.07931)
+
+[node name="Silo" type="StaticBody3D"]
+
+[node name="Farm Silo" parent="." instance=ExtResource("1_gbatx")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.05295, 0)
+shape = SubResource("BoxShape3D_qsos7")

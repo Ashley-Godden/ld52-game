@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dofp82gl0dr6v"]
+
+[ext_resource type="PackedScene" uid="uid://c67c180ro3hfi" path="res://Models/Lobby/Under Construction Tape.glb" id="1_de87a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cefso"]
+size = Vector3(0.0558271, 1, 3.01841)
+
+[node name="Under Construction Tape" type="StaticBody3D"]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 0)
+
+[node name="Under Construction Tape" parent="." instance=ExtResource("1_de87a")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 4.26326e-14, 0, 1, 0, -4.26326e-14, 0, 1, 0.0102644, 0, 0)
+shape = SubResource("BoxShape3D_cefso")
